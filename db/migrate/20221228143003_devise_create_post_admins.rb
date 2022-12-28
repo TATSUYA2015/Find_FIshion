@@ -4,7 +4,6 @@ class DeviseCreatePostAdmins < ActiveRecord::Migration[6.1]
   def change
     create_table :post_admins do |t|
       ## Database authenticatable
-
       t.string :last_name,          null: false, default: ""
       t.string :first_name,         null: false, default: ""
       t.string :last_name_kana,     null: false, default: ""
@@ -16,7 +15,6 @@ class DeviseCreatePostAdmins < ActiveRecord::Migration[6.1]
       t.string :address,            null: false, default: ""
       t.string :telephone_number,   null: false, default: ""
       t.boolean :is_deleted,        null: false, default: false
-
 
       ## Recoverable
       t.string   :reset_password_token
