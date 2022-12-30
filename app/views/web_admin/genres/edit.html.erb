@@ -1,0 +1,6 @@
+<h1>Genre編集画面</h1>
+<%= form_with model: @genre, url: web_admin_genre_path, method: :patch do |f| %>
+<p>Genre name</p>
+<%= f.text_field :name %>
+<%= f.submit'Edit' %>
+<% end %>

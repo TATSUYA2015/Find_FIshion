@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <heder>
+    <% if web_admin_signed_in? %>
+      <li>
+        <%= link_to"投稿者一覧" %>
+      </li>
+      <li>
+        <%= link_to"利用者一覧" %>
+      </li>
+      <li>
+        <%= link_to"Genre一覧",web_admin_genres_path %>
+      </li>
+      <li>
+        <%= link_to"Log_out",destroy_web_admin_session_path, method: :delete %>
+      </li>
+    <% else %>
+
+    <% end %>
+  </heder>
 
   <body>
     <%= yield %>

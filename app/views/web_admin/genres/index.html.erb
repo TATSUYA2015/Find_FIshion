@@ -1,0 +1,17 @@
+<h1>Genre一覧</h1>
+<div>
+    <%= form_with model: @genre, url: web_admin_genres_path, method: :post   do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit '追加' %>
+    <% end %>
+</div>
+
+<div>
+    <% @genres.each do |genre| %>
+    <p>
+        <%= link_to edit_web_admin_genre_path(genre.id) do %>
+        <%= genre.name %>
+        <% end %>
+    </p>
+    <% end %>
+</div>
