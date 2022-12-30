@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   namespace :web_admin do
     get 'homes/top'
     resources :genres, only:[:index, :create, :edit, :update]
+    resources :contributors, only:[:index, :show, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
   end
 
   devise_for :contributor, skip: [:passwords], controllers: {

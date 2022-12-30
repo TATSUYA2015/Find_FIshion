@@ -11,10 +11,13 @@
   <heder>
     <% if web_admin_signed_in? %>
       <li>
-        <%= link_to"投稿者一覧" %>
+        <%= link_to"トップページ", web_admin_homes_top_path %>
       </li>
       <li>
-        <%= link_to"利用者一覧" %>
+        <%= link_to"投稿者一覧", web_admin_contributors_path %>
+      </li>
+      <li>
+        <%= link_to"利用者一覧", web_admin_customers_path %>
       </li>
       <li>
         <%= link_to"Genre一覧",web_admin_genres_path %>
