@@ -1,0 +1,2 @@
+module WebAdmin::ItemsHelper
+end

@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  ##publicのnamespace作成に入ったらしようね！！
-  devise_for :customers, skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-  }
 
   devise_for :web_admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "web_admin/sessions"
@@ -14,6 +9,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :contributors, only:[:index, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
+    resources :items, only:[:index, :show, :edit, :update]
   end
 
   devise_for :contributor, skip: [:passwords], controllers: {
@@ -21,6 +17,11 @@ Rails.application.routes.draw do
   sessions: 'post_admin/sessions'
   }
 
+    ##publicのnamespace作成に入ったらしようね！！
+  devise_for :customers, skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+  }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
