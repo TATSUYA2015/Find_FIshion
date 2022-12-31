@@ -1,0 +1,2 @@
+module PostAdmin::ItemsHelper
+end

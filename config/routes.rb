@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :post_admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+  end
   devise_for :web_admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "web_admin/sessions"
   }
@@ -18,6 +24,7 @@ Rails.application.routes.draw do
   namespace :post_admin do
     get 'homes/top'
     resources :contributors, only:[:show, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
     ##publicのnamespace作成に入ったらしようね！！

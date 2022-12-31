@@ -24,7 +24,10 @@
     <%= f.label :brand_name %>
     <%= f.text_field :brand_name %>
   </div>
-
+  <div class="field">
+    <%= f.label :profile_image %>
+    <%= f.file_field :profile_image, accept: "image/*" %>
+  </div>
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
