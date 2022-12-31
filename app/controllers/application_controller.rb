@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
     case resource
     when WebAdmin
       web_admin_homes_top_path
-    when Customer
-      root_path
+    when Contributor
+      post_admin_homes_top_path
     end
   end
 

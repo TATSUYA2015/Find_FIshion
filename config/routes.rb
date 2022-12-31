@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+ 
   devise_for :web_admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "web_admin/sessions"
   }
@@ -16,7 +17,10 @@ Rails.application.routes.draw do
   registrations: "post_admin/registrations",
   sessions: 'post_admin/sessions'
   }
-
+  namespace :post_admin do
+    get 'homes/top'
+  end
+  
     ##publicのnamespace作成に入ったらしようね！！
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",

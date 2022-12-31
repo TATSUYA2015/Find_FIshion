@@ -25,6 +25,21 @@
       <li>
         <%= link_to"Log_out",destroy_web_admin_session_path, method: :delete %>
       </li>
+    <% elsif contributor_signed_in? %>
+      <li>
+        <%= link_to"Top_page"%>
+      </li>
+      <li>
+        <%= link_to"Follor"%>
+      </li>
+      <li>
+        <%= link_to"My_page"%>
+      </li>
+      <li>
+        <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>
+      </li>
+    <% elsif customer_signed_in? %>
+
     <% else %>
 
     <% end %>
