@@ -1,1 +1,6 @@
 <h1>投稿者アカウント一覧</h1>
+<% @contributors.each do |contributor| %>
+  <%= link_to web_admin_contributor_path(contributor.id) do %>
+    <%= contributor.brand_name %>
+  <% end %>
+<% end %>

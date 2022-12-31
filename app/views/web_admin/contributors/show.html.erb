@@ -1,2 +1,10 @@
-<h1>WebAdmin::Contributors#show</h1>
-<p>Find me in app/views/web_admin/contributors/show.html.erb</p>
+<h1><%= @contributor.brand_name %>のアカウント情報</h1>
+<%= image_tag @contributor.get_profile_image(100,100) %></br>
+氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></br>
+カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></br>
+ブランド名:<%= @contributor.brand_name %></br>
+E-mail:<%= @contributor.email %></br>
+郵便番号:<%= @contributor.postal_code %></br>
+住所:<%= @contributor.address %></br>
+電話番号:<%= @contributor.telephone_number %></br>
+<%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id) %>
