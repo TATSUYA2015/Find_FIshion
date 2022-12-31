@@ -1,2 +1,13 @@
 <h1>My_page編集画面</h1>
-<%= form_with model: 
+<%= image_tag @contributor.get_profile_image(100,100) %></br>
+<%= form_with model: @contributor, url:post_admin_contributor_path, method: :patch do |f| %>
+氏名:<%= f.text_field :last_name %> <%= f.text_field  :first_name %></br>
+カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></br>
+ブランド名:<%= f.text_field :brand_name %></br>
+ブランド画像:<%= f.file_field :profile_image, accept: "image/*" %></br>
+E-mail:<%= f.text_field :email %></br>
+郵便番号:<%= f.text_field :postal_code %></br>
+住所:<%= f.text_field :address %><br>
+電話番号:<%= f.text_field :telephone_number %></br>
+<%= f.submit"Keep"%>
+<% end %>

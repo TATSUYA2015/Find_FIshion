@@ -1,11 +1,10 @@
 <h1>My_page</h1>
-<!-- -->
-<%= @contributor.last_name %> <%= @contributor.first_name %></br>
-<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></br>
-<%= @contributor.brand_name %></br>
-<%= @contributor.email %></br>
-<%= @contributor.postal_code %></br>
-<%= @contributor.address %></br>
-<%= @contributor.telephone_number %></br>
-</br>
+<%= image_tag @contributor.get_profile_image(100,100) %></br>
+氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></br>
+カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></br>
+ブランド名:<%= @contributor.brand_name %></br>
+E-mail:<%= @contributor.email %></br>
+郵便番号:<%= @contributor.postal_code %></br>
+住所:<%= @contributor.address %></br>
+電話番号:<%= @contributor.telephone_number %></br>
 <%= link_to "Edit",edit_post_admin_contributor_path(current_contributor.id) %>
