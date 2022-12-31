@@ -20,20 +20,20 @@
         <%= link_to"利用者一覧", web_admin_customers_path %>
       </li>
       <li>
-        <%= link_to"Genre一覧",web_admin_genres_path %>
+        <%= link_to"Genre一覧", web_admin_genres_path %>
       </li>
       <li>
         <%= link_to"Log_out",destroy_web_admin_session_path, method: :delete %>
       </li>
     <% elsif contributor_signed_in? %>
       <li>
-        <%= link_to"Top_page"%>
+        <%= link_to"Top_page", post_admin_homes_top_path %>
       </li>
       <li>
         <%= link_to"Follor"%>
       </li>
       <li>
-        <%= link_to"My_page"%>
+        <%= link_to"My_page", post_admin_contributor_path(current_contributor.id) %>
       </li>
       <li>
         <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>

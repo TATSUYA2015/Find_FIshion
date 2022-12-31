@@ -18,6 +18,15 @@ class ApplicationController < ActionController::Base
     end
    end
 
+   def after_sign_out_path_for(resource)
+    if resource == :post_admin
+      new_contributor_session_path
+    else
+      contributor_session_path
+    end
+   end
+
+
 
   protected
 
