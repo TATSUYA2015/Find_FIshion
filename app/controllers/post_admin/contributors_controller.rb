@@ -1,9 +1,10 @@
-class PostAdmin::ContributorController < ApplicationController
+class PostAdmin::ContributorsController < ApplicationController
   def show
     @contributor=Contributor.find(params[:id])
   end
 
   def edit
+     @contributor=Contributor.find(params[:id])
   end
 
   def update
