@@ -4,9 +4,6 @@ class PostAdmin::HomesController < ApplicationController
     @items=Item.all
   end
 
-
-
-
   private
 
   def contributor_paramas
