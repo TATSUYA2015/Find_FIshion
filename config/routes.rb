@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :post_admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-  end
   devise_for :web_admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "web_admin/sessions"
   }

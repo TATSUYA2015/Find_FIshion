@@ -1,1 +1,9 @@
 <h1><%= current_contributor.brand_name %>ブランド トップ</h1>
+<p><%= link_to "+",new_post_admin_item_path %></p>
+<div>
+  <% @items.each do |item| %>
+<%= item.name %></br>
+<%= image_tag item.image %></br>
+<%= item.introduction %></br>
+<% end %>
+</div>
