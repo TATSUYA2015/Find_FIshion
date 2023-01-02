@@ -5,7 +5,7 @@ class Contributor < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
-
+  
   has_many :items, dependent: :destroy
 
   def get_profile_image(width,height)

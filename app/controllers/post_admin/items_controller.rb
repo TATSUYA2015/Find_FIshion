@@ -9,7 +9,7 @@ class PostAdmin::ItemsController < ApplicationController
 
   def create
     @item=Item.new(item_params)
-    @items=Item.all
+
     if @item.save
       redirect_to post_admin_item_path(@item.id)
     else
