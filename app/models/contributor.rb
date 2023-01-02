@@ -6,7 +6,8 @@ class Contributor < ApplicationRecord
 
   has_one_attached :profile_image
   
-  has_many :items, dependent: :destroy
+  belongs_to :item
+  
 
   def get_profile_image(width,height)
     unless profile_image.attached?
