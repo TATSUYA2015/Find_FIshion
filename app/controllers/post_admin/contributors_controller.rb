@@ -4,7 +4,7 @@ class PostAdmin::ContributorsController < ApplicationController
   end
 
   def edit
-     @contributor=Contributor.find(params[:id])
+    @contributor=Contributor.find(params[:id])
   end
 
   def update

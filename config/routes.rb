@@ -21,12 +21,13 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
-  devise_for :customers, skip: [:passwords], controllers: {
+  devise_for :customer, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
 
   scope module: :public do
+    root  'homes#top'
     get 'homes/top'
     resources :customers, only:[:show, :edit, :update]
   end

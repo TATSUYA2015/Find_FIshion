@@ -5,8 +5,6 @@ class Item < ApplicationRecord
     belongs_to :contributor
     belongs_to :genre
 
-
-
     validates :name,           presence:true
     validates :introduction,   presence:true
 
