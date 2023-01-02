@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
       web_admin_homes_top_path
     when Contributor
       post_admin_homes_top_path
+    when Customer
+      homes_top_path
     end
   end
 
@@ -23,6 +25,14 @@ class ApplicationController < ActionController::Base
       new_contributor_session_path
     else
       contributor_session_path
+    end
+   end
+
+   def after_sign_out_path_for(resource)
+    if resource == :public
+      new_customer_session_path
+    else
+      customer_session_path
     end
    end
 

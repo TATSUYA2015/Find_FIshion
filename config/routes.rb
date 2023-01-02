@@ -21,11 +21,15 @@ Rails.application.routes.draw do
     resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
-    ##publicのnamespace作成に入ったらしようね！！
   devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
+
+  scope module: :public do
+    get 'homes/top'
+    resources :customers, only:[:show, :edit, :update]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

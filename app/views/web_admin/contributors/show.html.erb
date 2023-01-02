@@ -1,4 +1,5 @@
 <h1><%= @contributor.brand_name %>のアカウント情報</h1>
+<div>
 <%= image_tag @contributor.get_profile_image(100,100) %></br>
 氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></br>
 カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></br>
@@ -8,3 +9,15 @@ E-mail:<%= @contributor.email %></br>
 住所:<%= @contributor.address %></br>
 電話番号:<%= @contributor.telephone_number %></br>
 <%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id) %>
+</div>
+</br>
+</br>
+</br>
+<h2>投稿一覧</h2>
+<div>
+  <% @items.each do |item| %>
+  <%= item.name %></br>
+  <%= image_tag item.image %></br>
+  <%= item.introduction %>
+  <% end %>
+</div>

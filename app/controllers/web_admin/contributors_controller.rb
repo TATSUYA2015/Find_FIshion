@@ -5,6 +5,7 @@ class WebAdmin::ContributorsController < ApplicationController
 
   def show
     @contributor=Contributor.find(params[:id])
+    @items=Item.all
   end
 
   def edit

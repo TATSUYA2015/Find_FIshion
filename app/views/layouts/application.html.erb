@@ -39,7 +39,21 @@
         <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>
       </li>
     <% elsif customer_signed_in? %>
-
+      <li>
+        <%= link_to"Top_page", homes_top_path %>
+      </li>
+      <li>
+        <%= link_to"Follor"%>
+      </li>
+      <li>
+        <%= link_to"About"%>
+      </li>
+      <li>
+        <%= link_to"My_page", customer_path(current_customer.id) %>
+      </li>
+      <li>
+        <%= link_to"Log_out",destroy_customer_session_path, method: :delete %>
+      </li>
     <% else %>
 
     <% end %>
