@@ -10,8 +10,12 @@ class PostAdmin::ItemsController < ApplicationController
 
   def create
     @item=Item.new(item_params)
-    @item.save
-    redirect_to post_admin_item_path(@item.id)
+    @item.contributor_id = current_contributor.id
+    if @item.save
+      redirect_to post_admin_item_path(@item.id)
+    else
+      render new_post_admin_item_path
+    end
   end
 
   def show

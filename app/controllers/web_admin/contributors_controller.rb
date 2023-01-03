@@ -16,7 +16,6 @@ class WebAdmin::ContributorsController < ApplicationController
     contributor=Contributor.find(params[:id])
     contributor.update(contributor_paramas)
     redirect_to web_admin_contributor_path
-
   end
 
   private

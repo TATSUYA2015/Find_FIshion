@@ -2,12 +2,12 @@
 <p><%= link_to "+",new_post_admin_item_path %></p>
 <div>
     <% @items.each do |item| %>
-
+      <% if item.contributor == current_contributor %>
         <%= link_to post_admin_item_path(item.id) do %>
           <%= item.name %></br>
           <%= image_tag item.image %></br>
           <%= item.introduction %></br>
           <% end %>
-
+      <% end %>
     <% end %>
 </div>

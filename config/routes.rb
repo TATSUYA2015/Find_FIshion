@@ -11,9 +11,6 @@ Rails.application.routes.draw do
     resources :items
   end
 
-
-
-
   devise_for :contributor, skip: [:passwords], controllers: {
   registrations: "post_admin/registrations",
   sessions: 'post_admin/sessions'
@@ -23,11 +20,6 @@ Rails.application.routes.draw do
     resources :contributors
     resources :items
   end
-
-
-
-
-
 
   devise_for :customer, skip: [:passwords], controllers: {
   registrations: "public/registrations",
