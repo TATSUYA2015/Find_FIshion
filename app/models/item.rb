@@ -2,7 +2,8 @@ class Item < ApplicationRecord
 
     has_one_attached :image
 
-    has_many :contributors, dependent: :destroy
+    belongs_to :contributor
+    belongs_to :genre, optional: true
 
     validates :name,           presence:true
     validates :introduction,   presence:true

@@ -1,8 +1,13 @@
-<h1>商品投稿一覧画面</h1>
-  <% @items.each do |item| %>
-    <%= link_to post_admin_item_path(item.id) do %>
-      <%= item.name %></br>
-      <%= image_tag item.image %></br>
-      <%= item.introduction %></br>
+<h1><%= current_contributor.brand_name %>ブランド商品一覧</h1>
+<p><%= link_to "+",new_post_admin_item_path %></p>
+<div>
+    <% @items.each do |item| %>
+
+        <%= link_to post_admin_item_path(item.id) do %>
+          <%= item.name %></br>
+          <%= image_tag item.image %></br>
+          <%= item.introduction %></br>
+          <% end %>
+
     <% end %>
-  <% end %>
+</div>

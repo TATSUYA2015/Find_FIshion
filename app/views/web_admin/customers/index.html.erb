@@ -1,1 +1,6 @@
 <h1>利用者アカウント一覧</h1>
+<% @customers.each do |customer| %>
+  <%= link_to web_admin_customer_path(customer.id) do %>
+    <%= customer.email %>
+  <% end %>
+<% end %>

@@ -1,2 +1,0 @@
-module PostAdmin::HomesHelper
-end

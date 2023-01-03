@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   }
   namespace :web_admin do
     get 'homes/top'
-    resources :genres, only:[:index, :create, :edit, :update]
-    resources :contributors, only:[:index, :show, :edit, :update]
-    resources :customers, only:[:index, :show, :edit, :update]
-    resources :items, only:[:index, :show, :edit, :update]
+    resources :genres
+    resources :contributors
+    resources :customers
+    resources :items
   end
+
+
+
 
   devise_for :contributor, skip: [:passwords], controllers: {
   registrations: "post_admin/registrations",
@@ -17,9 +20,14 @@ Rails.application.routes.draw do
   }
   namespace :post_admin do
     get 'homes/top'
-    resources :contributors, only:[:show, :edit, :update]
-    resources :items, only:[:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :contributors
+    resources :items
   end
+
+
+
+
+
 
   devise_for :customer, skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -29,7 +37,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root  'homes#top'
     get 'homes/top'
-    resources :customers, only:[:show, :edit, :update]
+    resources :customers
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

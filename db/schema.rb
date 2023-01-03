@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2022_12_30_125722) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.integer "contributor_id", null: false
     t.string "name", default: "", null: false
     t.text "introduction", default: "", null: false
     t.datetime "created_at", precision: 6, null: false

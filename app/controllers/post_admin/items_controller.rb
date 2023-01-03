@@ -1,5 +1,6 @@
 class PostAdmin::ItemsController < ApplicationController
   def index
+    @item=Item.new
     @items=Item.all
   end
 
@@ -9,12 +10,8 @@ class PostAdmin::ItemsController < ApplicationController
 
   def create
     @item=Item.new(item_params)
-
-    if @item.save
-      redirect_to post_admin_item_path(@item.id)
-    else
-      render new_post_admin_item_path
-    end
+    @item.save
+    redirect_to post_admin_item_path(@item.id)
   end
 
   def show
@@ -32,15 +29,16 @@ class PostAdmin::ItemsController < ApplicationController
   end
 
   def destroy
-    @item=Item.find(params[:id])
-    @item.destroy
-    redirect_to post_admin_homes_top_path
+    item=Item.find(params[:id])
+    item.destroy
+    redirect_to post_admin_items_path
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :image, :introduction)
+    params.require(:item).permit(:genre_id, :name, :image, :introduction)
   end
 
 end
+
