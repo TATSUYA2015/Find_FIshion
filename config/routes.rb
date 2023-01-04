@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root  'homes#top'
     get 'homes/top'
+    get 'home/about' => 'homes#about', as: 'about'
     resources :customers
+    resources :items
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
