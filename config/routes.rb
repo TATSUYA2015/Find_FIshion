@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   namespace :post_admin do
     get 'homes/top'
     resources :contributors
+    ##退会画面
+    get 'contributors/:id/unsubscribe' => 'contributors#unsubscribe', as: 'unsubscribe'
+    #論理削除用のルーティング
+    patch 'contributors/:id/withdrawal' => 'contributors#withdrawal', as: 'contributors_withdrawal'
     resources :items
   end
 
@@ -31,6 +35,10 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'home/about' => 'homes#about', as: 'about'
     resources :customers
+    ##退会画面
+    get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    #論理削除用のルーティング
+    patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
     resources :items
   end
 

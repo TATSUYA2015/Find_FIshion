@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h3><strong>本当に退会しますか？</strong></h3>
+    <p class="text-center">
+      退会すると会員登録情報やお気に入り・フォロワー登録<br>
+      すべて登録が削除されます。<br>
+      退会する場合は、「退会する」をクリックしてください。
+    </p>
+    <%= link_to "退会しない",customer_path(current_customer), class: "btn btn-primary" %>
+    <%= link_to "退会する",customers_withdrawal_path, method: :patch, data: { confim: "本当に退会しますか？"},class: "btn btn-danger" %>
+  </div>
+</div>

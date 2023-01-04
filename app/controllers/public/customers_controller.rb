@@ -13,6 +13,16 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path
   end
 
+  def unsubscribe
+  end
+
+  def withdrawal
+    @customer=Customer.find(params[:id])
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
   private
 
   def customer_params

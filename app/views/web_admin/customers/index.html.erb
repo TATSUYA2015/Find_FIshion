@@ -3,4 +3,9 @@
   <%= link_to web_admin_customer_path(customer.id) do %>
     <%= customer.email %>
   <% end %>
+  <% if customer.is_deleted %>
+  退会済み
+  <% else %>
+  有効
+  <% end %>
 <% end %>

@@ -24,4 +24,14 @@ class PostAdmin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  protected
+  def contributor_state
+    @contributor = Contributor.find_by(email: params[:contributor][:email])
+    return if !@contributor
+    if @contributor.valid_password?(params[:contributor][:password]) && @contributor.is_deleted
+      redirect_to new_contributor_registration_path
+    end
+  end
+
 end

@@ -9,5 +9,10 @@ Email:<%= f.text_field :email %></br>
 郵便番号:<%= f.text_field :postal_code %></br>
 住所:<%= f.text_field :address %></br>
 電話番号:<%= f.text_field :telephone_number %></br>
+退会ステータス</br>
+<%= f.radio_button :is_deleted, false %>
+<%= f.label :is_deleted, "有効" %>
+<%= f.radio_button :is_deleted, true %>
+<%= f.label :is_deleted, "退会" %>
 <%= f.submit "Keep" %>
 <% end %>
