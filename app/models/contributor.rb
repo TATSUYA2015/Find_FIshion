@@ -8,6 +8,10 @@ class Contributor < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  def items
+    Item.where(contributor_id: self.id)
+  end
+
   has_one_attached :profile_image
 
   has_many :items, dependent: :destroy
