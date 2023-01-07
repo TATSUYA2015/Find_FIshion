@@ -55,7 +55,15 @@
         <%= link_to"Log_out",destroy_customer_session_path, method: :delete %>
       </li>
     <% else %>
-
+      <li>
+        <%= link_to"管理者Log_in",new_web_admin_session_path %>
+      </li>
+            <li>
+        <%= link_to"投稿者Log_in",new_contributor_session_path %>
+      </li>
+      <li>
+        <%= link_to"利用者Log_in",new_customer_session_path %>
+      </li>
     <% end %>
   </heder>
 

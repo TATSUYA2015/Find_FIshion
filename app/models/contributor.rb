@@ -4,6 +4,10 @@ class Contributor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def activ_for_authentication?
+    super && (self.is_deleted == false)
+  end
+
   has_one_attached :profile_image
 
   has_many :items, dependent: :destroy

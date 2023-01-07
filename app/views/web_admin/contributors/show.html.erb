@@ -16,8 +16,12 @@ E-mail:<%= @contributor.email %></br>
 <h2>投稿一覧</h2>
 <div>
   <% @items.each do |item| %>
-  <%= item.name %></br>
-  <%= image_tag item.image %></br>
-  <%= item.introduction %>
-  <% end %>
+  
+    <%= link_to web_admin_item_path(item.id) do %>
+      <%= item.name %></br>
+      <%= image_tag item.image %></br>
+      <%= item.introduction %></br>
+      <% end %>
+    <% end %>
+  
 </div>

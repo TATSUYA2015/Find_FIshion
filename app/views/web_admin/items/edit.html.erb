@@ -1,2 +1,7 @@
-<h1>WebAdmin::Items#edit</h1>
-<p>Find me in app/views/web_admin/items/edit.html.erb</p>
+<h1>商品編集画面</h1>
+<%= form_with model: @item, url:web_admin_item_path, method: :patch do |f| %>
+  商品名:<%= f.text_field  :name %></br>
+  商品画像:<%= f.file_field :image, accept: "image/*"%></br>
+  商品説明:<%= f.text_area :introduction %></br>
+  <%= f.submit "Keep" %>/<%= link_to "Delete", web_admin_item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+<% end %>
