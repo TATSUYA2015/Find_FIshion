@@ -4,12 +4,22 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :profile_image
+
+  has_many :relationships, foreign_key: :following_id
+  has_many :followings,through: :relationships, source: :follower
+
+  def following?(customer)
+    followings.include?(customer)
+  end
+
+
 
   def activ_for_authentication?
     super && (self.is_deleted == false)
   end
 
+
+  has_one_attached :profile_image
   def get_profile_image(width,height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.png')

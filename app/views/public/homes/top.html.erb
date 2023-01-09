@@ -1,7 +1,7 @@
 <h1>利用者トップ</1>
 <div>
 <% @contributors.each do |contributor| %>
-  <%= link_to items_path do %> <!--各ブランドの商品ページのリンク -->
+  <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
     <%= image_tag contributor.get_profile_image(100,100) %></br>
     <%= contributor.brand_name %></br>
   <% end %>

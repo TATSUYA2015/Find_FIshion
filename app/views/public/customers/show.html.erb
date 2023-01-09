@@ -1,5 +1,6 @@
 <h1>アカウント詳細画面</h1>
 <%= image_tag @customer.get_profile_image(100,100) %></br>
+<%= @customer.followings.count %>フォロー数<br>
 氏名:<%= @customer.last_name %><%= @customer.first_name %></br>
 カナ:<%= @customer.last_name_kana %><%= @customer.first_name_kana %></br>
 アカウント名:<%= @customer.account %></br>

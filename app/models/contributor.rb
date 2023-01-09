@@ -8,16 +8,20 @@ class Contributor < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  has_many :items, dependent: :destroy
   def items
     Item.where(contributor_id: self.id)
   end
 
+  has_many :relationships, foreign_key: :follower_id
+  has_many :followers, through: :relationships, source: :following
+
+  def following?(contributor)
+    followings.include?(contributor)
+  end
+
+
   has_one_attached :profile_image
-
-  has_many :items, dependent: :destroy
-
-
-
   def get_profile_image(width,height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.png')

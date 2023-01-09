@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   }
   namespace :post_admin do
     get 'homes/top'
-    resources :contributors
+    resources :contributors do
+      resource :relationships, only: [:create, :destroy]
+      #フォローしてくれている人全員を表示してくれる
+      get :follower, on: :member
+    end
     ##退会画面
     get 'contributors/:id/unsubscribe' => 'contributors#unsubscribe', as: 'unsubscribe'
     #論理削除用のルーティング
@@ -34,7 +38,20 @@ Rails.application.routes.draw do
     root  'homes#top'
     get 'homes/top'
     get 'home/about' => 'homes#about', as: 'about'
+    resources :contributor do
+      resource :relationships, only: [:create, :destroy]
+      #ある利用者がフォローしている人全員を表示してくれる
+      get :followings, on: :member
+      #フォローしてくれている人全員を表示してくれる
+      get :follower, on: :member
+    end
     resources :customers
+      #resource :relationships, only: [:create, :destroy]
+      #ある利用者がフォローしている人全員を表示してくれる
+      #get :followings, on: :member
+      #フォローしてくれている人全員を表示してくれる
+      #get :follower, on: :member
+
     ##退会画面
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     #論理削除用のルーティング

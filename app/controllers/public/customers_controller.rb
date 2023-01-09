@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer=Customer.find(params[:id])
+    @customers=Customer.where.not(id: current_customer.id)
   end
 
   def edit
@@ -13,6 +14,7 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path
   end
 
+
   def unsubscribe
   end
 
@@ -22,6 +24,7 @@ class Public::CustomersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
 
   private
 
