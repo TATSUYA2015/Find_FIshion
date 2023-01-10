@@ -5,6 +5,7 @@
 <%#= link_to customer_relationships_path(@contributor, @customer), method: :delete do %>
 <p>フォロー解除</p>
 <%# end %> -->
+<%= image_tag @contributor.get_profile_image(100,100) %>
 
 <% if current_customer.following?(@contributor) %>
     <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
@@ -13,5 +14,16 @@
 <% else %>
     <%= link_to contributor_relationships_path(@contributor), method: :post do %>
     <p>フォロー</p>
+    <% end %>
+<% end %>
+
+<% @items.each do |item| %>
+    <!--　（contribuctorのID =  contribuctorが投稿したitemのid）が一緒であれば表示されるif文を完成させれえばよい？？　 -->
+    <% if item.id == @contributor %>
+        <%= link_to post_admin_item_path(item.id) do %>
+          <%= item.name %></br>
+          <%= image_tag item.image %></br>
+          <%= item.introduction %></br>
+        <% end %>
     <% end %>
 <% end %>

@@ -45,13 +45,13 @@ Rails.application.routes.draw do
       #フォローしてくれている人全員を表示してくれる
       get :followers, on: :member
     end
-    resources :customers
-      #resource :relationships, only: [:create, :destroy]
+    resources :customers do
+      resource :relationships#, only: [:create, :destroy]
       #ある利用者がフォローしている人全員を表示してくれる
-      #get :followings, on: :member
+      get :followings, on: :member
       #フォローしてくれている人全員を表示してくれる
       #get :follower, on: :member
-
+    end
     ##退会画面
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     #論理削除用のルーティング
