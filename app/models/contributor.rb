@@ -13,13 +13,9 @@ class Contributor < ApplicationRecord
     Item.where(contributor_id: self.id)
   end
 
-  has_many :relationships, foreign_key: :follower_id
+  #フォロー機能アソシエーション
+  has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :relationships, source: :following
-
-  def following?(contributor)
-    followings.include?(contributor)
-  end
-
 
   has_one_attached :profile_image
   def get_profile_image(width,height)

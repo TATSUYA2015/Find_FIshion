@@ -5,9 +5,11 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  has_many :relationships, foreign_key: :following_id
+  #フォロー機能アソシエーション
+  has_many :relationships, foreign_key: :following_id, dependent: :destroy
   has_many :followings,through: :relationships, source: :follower
 
+  #フォローしているか判断する
   def following?(contributor)
     followings.include?(contributor)
   end

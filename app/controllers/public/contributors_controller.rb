@@ -10,8 +10,6 @@ class Public::ContributorController < ApplicationController
     #@contributors=customer.followings
   #end
 
-
-
   def followers
     contributor = Contributor.find(params[:id])
     @customer = contributor.followers
