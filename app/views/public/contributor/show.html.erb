@@ -1,5 +1,4 @@
 <h1><%= @contributor.brand_name %>のブランド情報</h1>
-
 <!--<%#= link_to customer_relationships_path(customer_id: @contributor), method: :post do %>
 <p>フォロー</p>
 <%# end %>
@@ -7,12 +6,12 @@
 <p>フォロー解除</p>
 <%# end %> -->
 
-<%#if current_customer.following?(current_customer.id) %>
+<% if current_customer.following?(@contributor) %>
     <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
     <p>フォロー解除</p>
     <% end %>
-<%# else %>
+<% else %>
     <%= link_to contributor_relationships_path(@contributor), method: :post do %>
     <p>フォロー</p>
     <% end %>
-<%# end %>
+<% end %>

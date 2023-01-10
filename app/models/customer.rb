@@ -8,11 +8,9 @@ class Customer < ApplicationRecord
   has_many :relationships, foreign_key: :following_id
   has_many :followings,through: :relationships, source: :follower
 
-  def following?(customer)
-    followings.include?(customer)
+  def following?(contributor)
+    followings.include?(contributor)
   end
-
-
 
   def activ_for_authentication?
     super && (self.is_deleted == false)
