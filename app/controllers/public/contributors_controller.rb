@@ -1,4 +1,4 @@
-class Public::ContributorController < ApplicationController
+class Public::ContributorsController < ApplicationController
   def show
     @contributor=Contributor.find(params[:id])
     @customer=current_customer.id

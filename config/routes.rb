@@ -38,12 +38,12 @@ Rails.application.routes.draw do
     root  'homes#top'
     get 'homes/top'
     get 'home/about' => 'homes#about', as: 'about'
-    resources :contributor do
+    resources :contributors do
       resource :relationships, only: [:create, :destroy]
       #ある利用者がフォローしている人全員を表示してくれる
       get :followings, on: :member
       #フォローしてくれている人全員を表示してくれる
-      get :follower, on: :member
+      get :followers, on: :member
     end
     resources :customers
       #resource :relationships, only: [:create, :destroy]
