@@ -19,8 +19,8 @@
 
 <% @items.each do |item| %>
     <!--　（contribuctorのID =  contribuctorが投稿したitemのid）が一緒であれば表示されるif文を完成させれえばよい？？　 -->
-    <% if item.id == @contributor %>
-        <%= link_to post_admin_item_path(item.id) do %>
+    <% if item.contributor.id == @contributor.id %>
+        <%= link_to item_path(item.id) do %>
           <%= item.name %></br>
           <%= image_tag item.image %></br>
           <%= item.introduction %></br>

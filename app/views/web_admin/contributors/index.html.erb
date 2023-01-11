@@ -4,4 +4,9 @@
     <%= image_tag contributor.get_profile_image(100,100) %>
     <%= contributor.brand_name %>
   <% end %>
+  <% if contributor.is_deleted %>
+    退会済み
+    <% else %>
+    有効
+  <% end %>
 <% end %>

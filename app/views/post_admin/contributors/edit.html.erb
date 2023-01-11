@@ -9,5 +9,5 @@ E-mail:<%= f.text_field :email %></br>
 郵便番号:<%= f.text_field :postal_code %></br>
 住所:<%= f.text_field :address %><br>
 電話番号:<%= f.text_field :telephone_number %></br>
-<%= f.submit"Keep"%>
+<%= f.submit"Keep"%><%= link_to "Withdrawal",post_admin_unsubscribe_path %>
 <% end %>
