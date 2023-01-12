@@ -16,9 +16,6 @@ class Public::ContributorsController < ApplicationController
   end
 
 
-
-
-
   private
 
   def contributor_paramas

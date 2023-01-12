@@ -1,7 +1,7 @@
 <h1>投稿者アカウント一覧</h1>
-<% @contributors.each do |contributor| %>
+<% @contributors.each do |contributor| %></br>
   <%= link_to web_admin_contributor_path(contributor.id) do %>
-    <%= image_tag contributor.get_profile_image(100,100) %>
+    <%= image_tag contributor.get_profile_image(100,100) %></br>
     <%= contributor.brand_name %>
   <% end %>
   <% if contributor.is_deleted %>

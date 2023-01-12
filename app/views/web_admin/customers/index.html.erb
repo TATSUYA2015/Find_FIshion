@@ -1,6 +1,7 @@
 <h1>利用者アカウント一覧</h1>
-<% @customers.each do |customer| %>
+<% @customers.each do |customer| %></br>
   <%= link_to web_admin_customer_path(customer.id) do %>
+    <%= image_tag customer.get_profile_image(100,100) %></br>
     <%= customer.email %>
   <% end %>
   <% if customer.is_deleted %>
