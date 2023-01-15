@@ -1,4 +1,6 @@
 <h1>フォロー一覧</h1>
 <% @contributors.each do |contributor| %>
-  <% contributor.brand_name %>
+  <%= link_to contributor_path(contributor.id) do %>
+  <%= contributor.brand_name %></br>
+  <% end %>
 <% end %>

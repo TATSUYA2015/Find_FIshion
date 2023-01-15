@@ -2,6 +2,7 @@
 <%= form_with model: @item, url:post_admin_item_path, method: :patch do |f| %>
   商品名:<%= f.text_field  :name %></br>
   商品画像:<%= f.file_field :image, accept: "image/*"%></br>
+  ジャンル:<%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></br>
   商品説明:<%= f.text_area :introduction %></br>
   <%= f.submit "Keep" %>/<%= link_to "Delete", post_admin_item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
 <% end %>
