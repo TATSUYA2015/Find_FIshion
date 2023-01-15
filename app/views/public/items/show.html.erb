@@ -1,3 +1,21 @@
 <h2>商品名　<%= @item.name %></h2>
 <%= image_tag @item.image %></br>
-<%= @item.introduction %><br>
+商品説明：<%= @item.introduction %><br>
+<p>コメント件数:<%= @item.comments.count %></p>
+<p>
+  <% @item.comments.each do |comment| %>
+    <p><%#= image_tag @comment.customer.get_profile_image(100,100) %></p>
+    <%= comment.customer.account %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+    <%= comment.introduction %>
+    <% if comment.customer == current_customer %>
+      <%= link_to "削除", item_comments_path(comment.item, comment), method: :delete %>
+    <% end %>
+  <% end %>
+</p>
+<p>
+  <%= form_with model: [@item, @comment] do |f| %>
+    <%= f.text_area :introduction, rows: '5', placeholder: "コメントをここに" %></br>
+    <%= f.submit "送信する" %>
+  <% end %>
+</p>

@@ -1,6 +1,4 @@
 <h1>フォロー一覧</h1>
 <% @contributors.each do |contributor| %>
-  <%= image_tag contributor.get_profile_image(100,100) %></br>
-  <%= contributor.brand_name %></br>
-
+  <% contributor.brand_name %>
 <% end %>

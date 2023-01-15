@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #コメント機能アソシエーション
+  has_many :comments, dependent: :destroy
 
   #フォロー機能アソシエーション
   has_many :relationships, foreign_key: :following_id, dependent: :destroy
@@ -14,6 +16,7 @@ class Customer < ApplicationRecord
     followings.include?(contributor)
   end
 
+  #退会の有無の判断
   def activ_for_authentication?
     super && (self.is_deleted == false)
   end

@@ -56,7 +56,9 @@ Rails.application.routes.draw do
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     #論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-    resources :items
+    resources :items do
+      resource :comments, only: [:create, :destroy]
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
