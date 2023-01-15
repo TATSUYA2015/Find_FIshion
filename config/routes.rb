@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     #論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
     resources :items do
-      resource :comments, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end
 
