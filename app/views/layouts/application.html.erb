@@ -49,6 +49,9 @@
         <%= link_to"Follor", followings_customer_path(current_customer.id) %>
       </li>
       <li>
+        <%=link_to"お気に入り一覧", favorites_item_path(current_customer.id) %>
+      </li>
+      <li>
         <%= link_to"My_page", customer_path(current_customer.id) %>
       </li>
       <li>

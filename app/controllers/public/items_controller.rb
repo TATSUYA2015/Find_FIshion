@@ -1,11 +1,17 @@
 class Public::ItemsController < ApplicationController
-  def index
-  end
 
   def show
     @item=Item.find(params[:id])
     @comment=Comment.new
   end
+
+
+  def favorites
+    @item = Item.find(params[:id])
+    favorites= Favorite.where(item_id: @item.id).pluck(:customer_id)
+    @favorite_items = Item.find(favorites)
+  end
+
 
   private
 

@@ -8,14 +8,14 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find_by(id: params[:id],item_id: params[:item_id]).destroy
-    redirect_to item_path
+    Comment.find(params[:id]).destroy
+    redirect_to item_path(params[:item_id])
   end
 
   private
 
   def comment_params
-  params.require(:comment).permit(:introduction)
+    params.require(:comment).permit(:introduction)
   end
 
 end

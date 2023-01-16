@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :items
   end
 
+
+
   devise_for :contributor, skip: [:passwords], controllers: {
   registrations: "post_admin/registrations",
   sessions: 'post_admin/sessions'
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
     patch 'contributors/:id/withdrawal' => 'contributors#withdrawal', as: 'contributors_withdrawal'
     resources :items
   end
+
+
 
   devise_for :customer, skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -57,6 +61,10 @@ Rails.application.routes.draw do
     #論理削除用のルーティング
     patch 'customers/:id/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
     resources :items do
+      resource :favorites, only: [:create, :destroy]
+      member do
+        get :favorites
+      end
       resources :comments, only: [:create, :destroy]
     end
   end

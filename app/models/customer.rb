@@ -5,7 +5,9 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #コメント機能アソシエーション
-  has_many :comments, dependent: :destroy
+  has_many :comments,      dependent: :destroy
+  #お気に入り機能アソシエーション
+  has_many :favorites,     dependent: :destroy
 
   #フォロー機能アソシエーション
   has_many :relationships, foreign_key: :following_id, dependent: :destroy
