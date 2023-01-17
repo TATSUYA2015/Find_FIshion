@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :contributors do
       resource :relationships, only: [:create, :destroy]
       #フォローしてくれている人全員を表示してくれる
-      get :follower, on: :member
+      get :followers, on: :member
     end
     ##退会画面
     get 'contributors/:id/unsubscribe' => 'contributors#unsubscribe', as: 'unsubscribe'

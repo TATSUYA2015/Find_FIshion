@@ -20,6 +20,11 @@ class PostAdmin::ContributorsController < ApplicationController
     redirect_to new_contributor_session_path
   end
 
+  def followers
+    contributor=Contributor.find(params[:id])
+    @customers=contributor.followers
+  end
+
   private
 
   def contributor_paramas

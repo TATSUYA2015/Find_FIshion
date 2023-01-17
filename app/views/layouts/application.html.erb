@@ -30,7 +30,7 @@
         <%= link_to"投稿一覧", post_admin_items_path %>
       </li>
       <li>
-        <%= link_to"Follor"%>
+        <%= link_to"Follor", followers_post_admin_contributor_path(current_contributor.id) %>
       </li>
       <li>
         <%= link_to"My_page", post_admin_contributor_path(current_contributor.id) %>
