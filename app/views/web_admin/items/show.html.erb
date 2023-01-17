@@ -1,6 +1,7 @@
 <h1>商品詳細画面</h1>
 <%= @item.name %></br>
 <%= image_tag @item.image %></br>
-<%= @item.genre.name %>
+<%= @item.genre.name %></br>
+♡<%= @item.favorites.count %> いいね</br>
 <%= @item.introduction %></br>
 <%= link_to "Edit", edit_web_admin_item_path %>

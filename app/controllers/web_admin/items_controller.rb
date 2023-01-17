@@ -1,6 +1,4 @@
 class WebAdmin::ItemsController < ApplicationController
-  def index
-  end
 
   def show
     @item=Item.find(params[:id])

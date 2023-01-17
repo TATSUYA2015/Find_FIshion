@@ -50,11 +50,9 @@ Rails.application.routes.draw do
       get :followers, on: :member
     end
     resources :customers do
-      resource :relationships#, only: [:create, :destroy]
+      resource :relationships
       #ある利用者がフォローしている人全員を表示してくれる
       get :followings, on: :member
-      #フォローしてくれている人全員を表示してくれる
-      #get :follower, on: :member
     end
     ##退会画面
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'

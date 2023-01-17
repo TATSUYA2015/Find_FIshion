@@ -11,6 +11,13 @@ E-mail:<%= @contributor.email %></br>
 <%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id) %>
 </div>
 </br>
+
+<h2>フォロワー一覧</h2>
+<%#= link_to"Follor", followers_post_admin_contributor_path(@contributor.id) %>
+<%# @follower.customers.each do |customer| %>
+  <%#= customer.account %></br>
+<%# end %>
+
 </br>
 </br>
 <h2>投稿一覧</h2>
@@ -18,7 +25,7 @@ E-mail:<%= @contributor.email %></br>
   <% @contributor.items.each do |item| %>
     <%= link_to web_admin_item_path(item.id) do %>
       <%= item.name %></br>
-      <%= image_tag item.image %></br>
+      <%= image_tag item.image,size:'300x300' %></br>
       <%= item.introduction %></br>
       <% end %>
     <% end %>
