@@ -1,0 +1,23 @@
+<h2>検索一覧</h2>
+
+<table>
+  <!--検索対象モデルがcontributorの時 -->
+  <% if @range == "brand_name" %>
+    <tbody>
+      <% @contributors.each do |contributor| %>
+        <tr>
+          <td><%= contributor.brand_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがItemの時) -->
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

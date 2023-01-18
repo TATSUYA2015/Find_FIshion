@@ -13,6 +13,21 @@ class Contributor < ApplicationRecord
     Item.where(contributor_id: self.id)
   end
 
+  #検索機能　検測分岐
+  def self.looks(search, word)
+    if search=="perfect_match"
+      @contributor=Contributor.where("brand_name LIKE?", "#{word}")
+    elsif search=="forward_match"
+      @contributor=Contributor.where("brand_name LIKE?","#{word}%")
+    elsif search=="backward_match"
+      @contributor=Contributor.where("brand_name LIKE?","%#{word}")
+    elsif search=="partial_match"
+      @contributor=Contributor.where("brand_name LIKE?","%#{word}%")
+    else
+      @contributor=Contributor.all
+    end
+  end
+
   #フォロー機能アソシエーション
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :followers, through: :relationships, source: :following

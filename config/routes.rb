@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     root  'homes#top'
     get 'homes/top'
     get 'home/about' => 'homes#about', as: 'about'
+    get "search" => "searches#search"
     resources :contributors do
       resource :relationships, only: [:create, :destroy]
       #ある利用者がフォローしている人全員を表示してくれる
