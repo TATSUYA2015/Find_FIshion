@@ -15,7 +15,9 @@
     <tbody>
       <% @items.each do |item| %>
         <tr>
+          <%= link_to contributor_path(@contributor.id) do %>
           <td><%= item.name %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
