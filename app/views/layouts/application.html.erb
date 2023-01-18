@@ -12,7 +12,7 @@
   <body class="d-flex flex-column vh-100">
       <heder class="navbar navbar-fixed-top">
         <div class="container">
-          <h3>Find_Fashion</h3>
+          <a class="navbar-brand p-3" href="/"><h3>Find_Fashion</h3></a>
             <nav>
               <ul class="nav">
                 <% if web_admin_signed_in? %>
@@ -45,14 +45,14 @@
                     <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>
                   </li>
                 <% elsif customer_signed_in? %>
-                  <div class="search_form">
+                  <li class="nav-item">
                     <%= form_with url: search_path, local: true, method: :get do |f| %>
                       <%= f.text_field :word %>
                       <%= f.select :range, options_for_select([['brand_name'], ['item']]) %>
                       <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
                       <%= f.submit "検索", class: "btn btn-primary" %>
                     <% end %>
-                  </div>
+                  </li>
                   <li classs="nav-item">
                     <%= link_to"Top_page", homes_top_path %>
                   </li>
@@ -88,11 +88,13 @@
     <main class="mb-auto">
 
   <body>
-    <%= yield %>
+    <div class="top">
+      <%= yield %>
+    </div>
   </body>
   <footer>
-        <div class="fixed-bottom">
-          <p class="text-center">＠2023 Find_Fashion</p>
+        <div class="fixed-bottom text-center">
+          ＠2023 Find_Fashion
         </div>
   </footer>
 </html>

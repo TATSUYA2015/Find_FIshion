@@ -1,6 +1,11 @@
 <h1>フォロー一覧</h1>
-<% @contributors.each do |contributor| %>
-  <%= link_to contributor_path(contributor.id) do %>
-  <%= contributor.brand_name %></br>
+<div>
+  <% @contributors.each do |contributor| %>
+   <div class="card w-25 mx-auto mt-4 shadow-lg">
+      <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
+        <%= image_tag contributor.get_profile_image(100,100) %></br>
+        <%= contributor.brand_name %></br>
+      <% end %>
+   </div>
   <% end %>
-<% end %>
+</div>
