@@ -5,10 +5,14 @@ class Public::ItemsController < ApplicationController
     @comment=Comment.new
   end
 
-
+#いいね一覧
   def favorites
-    @item = Item.find(params[:id])
-    favorites= Favorite.where(item_id: @item.id).pluck(:customer_id)
+    #@item = Item.find(params[:id])
+    #@customer=current_customer
+    #@favorite_items = @customer.favorites
+
+    #いいね　where→ログインしてるcustomer
+    favorites= Favorite.where(customer_id: current_customer.id).pluck(:item_id)
     @favorite_items = Item.find(favorites)
   end
 

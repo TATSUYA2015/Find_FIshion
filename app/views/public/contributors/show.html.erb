@@ -22,7 +22,7 @@
     <% if item.contributor.id == @contributor.id %>
         <%= link_to item_path(item.id) do %>
           <%= item.name %></br>
-          <%= image_tag item.image %></br>
+          <%= image_tag item.image,size:"300x300" %></br>
           <%= item.introduction %></br>
         <% end %>
     <% end %>
