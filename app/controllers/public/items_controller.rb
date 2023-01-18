@@ -7,11 +7,7 @@ class Public::ItemsController < ApplicationController
 
 #いいね一覧
   def favorites
-    #@item = Item.find(params[:id])
-    #@customer=current_customer
-    #@favorite_items = @customer.favorites
-
-    #いいね　where→ログインしてるcustomer
+    #いいね　where→ログインしてるcustomer pluck→itemを配列から検索
     favorites= Favorite.where(customer_id: current_customer.id).pluck(:item_id)
     @favorite_items = Item.find(favorites)
   end
