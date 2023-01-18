@@ -8,81 +8,91 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <heder>
-    <h3>Find_Fashion</h3>
-    <% if web_admin_signed_in? %>
-      <p>
-        <%= link_to"トップページ", web_admin_homes_top_path %>
-      </p>
-      <p>
-        <%= link_to"投稿者一覧", web_admin_contributors_path %>
-      </p>
-      <p>
-        <%= link_to"利用者一覧", web_admin_customers_path %>
-      </p>
-      <p>
-        <%= link_to"Genre一覧", web_admin_genres_path %>
-      </p>
-      <p>
-        <%= link_to"Log_out",destroy_web_admin_session_path, method: :delete %>
-      </p>
-    <% elsif contributor_signed_in? %>
-      <p>
-        <%= link_to"投稿一覧", post_admin_items_path %>
-      </p>
-      <p>
-        <%= link_to"Follor", followers_post_admin_contributor_path(current_contributor.id) %>
-      </p>
-      <p>
-        <%= link_to"My_page", post_admin_contributor_path(current_contributor.id) %>
-      </p>
-      <p>
-        <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>
-      </p>
-    <% elsif customer_signed_in? %>
-      <div class="search_form">
-        <%= form_with url: search_path, local: true, method: :get do |f| %>
-          <%= f.text_field :word %>
-          <%= f.select :range, options_for_select([['brand_name'], ['item']]) %>
-          <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-          <%= f.submit "検索", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-      <p>
-        <%= link_to"Top_page", homes_top_path %>
-      </p>
-      <p>
-        <%= link_to"About", about_path %>
-      </p>
-      <p>
-        <%= link_to"Follor", followings_customer_path(current_customer.id) %>
-      </p>
-      <p>
-        <%=link_to"お気に入り一覧", favorites_item_path(current_customer.id) %>
-      </p>
-      <p>
-        <%= link_to"My_page", customer_path(current_customer.id) %>
-      </p>
-      <p>
-        <%= link_to"Log_out",destroy_customer_session_path, method: :delete %>
-      </p>
-    <% else %>
-      <p>
-        <%= link_to"管理者Log_in",new_web_admin_session_path %>
-      </p>
-      <p>
-        <%= link_to"投稿者Log_in",new_contributor_session_path %>
-      </p>
-      <p>
-        <%= link_to"利用者Log_in",new_customer_session_path %>
-      </p>
-    <% end %>
-  </heder>
+
+  <body class="d-flex flex-column vh-100">
+      <heder class="navbar navbar-fixed-top">
+        <div class="container">
+          <h3>Find_Fashion</h3>
+            <nav>
+              <ul class="nav">
+                <% if web_admin_signed_in? %>
+                  <li classs="nav-item">
+                    <%= link_to"トップページ", web_admin_homes_top_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"投稿者一覧", web_admin_contributors_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"利用者一覧", web_admin_customers_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Genre一覧", web_admin_genres_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Log_out",destroy_web_admin_session_path, method: :delete %>
+                  </li>
+                <% elsif contributor_signed_in? %>
+                  <li classs="nav-item">
+                    <%= link_to"投稿一覧", post_admin_items_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Follor", followers_post_admin_contributor_path(current_contributor.id) %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"My_page", post_admin_contributor_path(current_contributor.id) %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Log_out",destroy_contributor_session_path, method: :delete %>
+                  </li>
+                <% elsif customer_signed_in? %>
+                  <div class="search_form">
+                    <%= form_with url: search_path, local: true, method: :get do |f| %>
+                      <%= f.text_field :word %>
+                      <%= f.select :range, options_for_select([['brand_name'], ['item']]) %>
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                      <%= f.submit "検索", class: "btn btn-primary" %>
+                    <% end %>
+                  </div>
+                  <li classs="nav-item">
+                    <%= link_to"Top_page", homes_top_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"About", about_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Follor", followings_customer_path(current_customer.id) %>
+                  </li>
+                  <li classs="nav-item">
+                    <%=link_to"お気に入り一覧", favorites_item_path(current_customer.id) %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"My_page", customer_path(current_customer.id) %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"Log_out",destroy_customer_session_path, method: :delete %>
+                  </li>
+                <% else %>
+                  <li classs="nav-item">
+                    <%= link_to"管理者Log_in",new_web_admin_session_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"投稿者Log_in",new_contributor_session_path %>
+                  </li>
+                  <li classs="nav-item">
+                    <%= link_to"利用者Log_in",new_customer_session_path %>
+                  </li>
+                <% end %>
+            </nav>
+        </div>
+    </heder>
+    <main class="mb-auto">
 
   <body>
     <%= yield %>
   </body>
   <footer>
-    <p class="text-center">＠2023 Find_Fashion</p>
+        <div class="fixed-bottom">
+          <p class="text-center">＠2023 Find_Fashion</p>
+        </div>
   </footer>
 </html>
