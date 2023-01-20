@@ -13,11 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
 
- .top{
-  background-image: url(assets/images/main.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+ body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+ }
+
+  footer{
+    margin-top: auto;
+    background-color: #555555;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    bottom: 0; /*下に固定*/
+  }
+
+  .footername{
+   font-family: 'Inknut Antiqua';
+   font-size: 12px;
+   color: #000000;
   }

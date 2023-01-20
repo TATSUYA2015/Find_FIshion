@@ -1,12 +1,8 @@
-<h1><%= @contributor.brand_name %>のブランド情報</h1>
-<!--<%#= link_to customer_relationships_path(customer_id: @contributor), method: :post do %>
-<p>フォロー</p>
-<%# end %>
-<%#= link_to customer_relationships_path(@contributor, @customer), method: :delete do %>
-<p>フォロー解除</p>
-<%# end %> -->
-<%= image_tag @contributor.get_profile_image(100,100) %>
 
+<h1><%= @contributor.brand_name %></h1>
+<div class="brand-image">
+<%= image_tag @contributor.get_profile_image(700,500) %>
+</div>
 <% if current_customer.following?(@contributor) %>
     <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
     <p>フォロー解除</p>
@@ -17,13 +13,15 @@
     <% end %>
 <% end %>
 
-<% @items.each do |item| %>
-    <!--　（contribuctorのID =  contribuctorが投稿したitemのid）が一緒であれば表示されるif文を完成させれえばよい？？　 -->
-    <% if item.contributor.id == @contributor.id %>
-        <%= link_to item_path(item.id) do %>
-          <%= item.name %></br>
-          <%= image_tag item.image,size:"300x300" %></br>
-          <%= item.introduction %></br>
+<div class="item">
+    <% @items.each do |item| %>
+        <!--　（contribuctorのID =  contribuctorが投稿したitemのid）が一緒であれば表示されるif文を完成させれえばよい？？　 -->
+        <% if item.contributor.id == @contributor.id %>
+            <%= link_to item_path(item.id) do %>
+              <%= item.name %></br>
+              <%= image_tag item.image,size:"300x300" %></br>
+              <%= item.introduction %></br>
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
+</div>
