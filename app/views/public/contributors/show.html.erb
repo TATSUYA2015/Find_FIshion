@@ -1,29 +1,28 @@
 <link rel="stylesheets" href="public/contribuctor.scss"/>
 
-<div>
-    <h1 class="text-center"><%= @contributor.brand_name %></h1>
+<h1 class="text-center"><%= @contributor.brand_name %></h1>
+<div class="brand-area1">
     <div class="container">
         <div class="row">
-            <%= image_tag @contributor.get_profile_image(700,500) %>
-            <div>
+            <%= image_tag @contributor.get_profile_image(500,500) %>
+            <div class="brand-area2">
             <p class="brand-explanation">ブランド説明</p>
             <% if current_customer.following?(@contributor) %>
                 <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
-                <p>フォロー解除</p>
+                <button type="button" class="btn btn-dark">フォロー解除<bottom>
                 <% end %>
             <% else %>
                 <%= link_to contributor_relationships_path(@contributor), method: :post do %>
-                <p>フォロー</p>
+                <button type="button" class="btn btn-dark">フォロー</bottom>
                 <% end %>
             <% end %>
             </div>
         </div>
     </div>
 </div>
-
-<h3>投稿一覧</h3>
+<h3 class="text-center">投稿一覧</h3>
 <div class="container">
-    <div class="step-box">
+    <div class="step-box1-2">
         <% @items.each do |item| %>
             <% if item.contributor.id == @contributor.id %>
                 <%= link_to item_path(item.id) do %>
@@ -35,5 +34,6 @@
                 <% end %>
             <% end %>
         <% end %>
+        <%= paginate @items %>
     </div>
 </div>

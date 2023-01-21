@@ -28,8 +28,10 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav m-auto">
+      </div>
+    </nav>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
               <% if web_admin_signed_in? %>
                 <li class="nav-item">
                   <%= link_to"トップページ", web_admin_homes_top_path, class: "btn btn-outline-secondary mr-3vw" %>
@@ -88,10 +90,7 @@
               <% end %>
             </ul>
           </div>
-          </div>
         </div>
-      </div>
-      </nav>
     </header>
     <main>
         <%= yield %>

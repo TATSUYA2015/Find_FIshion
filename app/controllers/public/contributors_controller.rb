@@ -2,7 +2,7 @@ class Public::ContributorsController < ApplicationController
   def show
     @contributor=Contributor.find(params[:id])
     @customer=current_customer.id
-    @items=Item.all
+    @items=Item.page(params[:page])
   end
 
   #def followings
