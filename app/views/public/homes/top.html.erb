@@ -1,14 +1,16 @@
+<link rel="stylesheets" href="public/homes.scss"/>
 
-<div class="top"></div>
-    <h1>利用者トップ</h1>
-    <div>
-      <% @contributors.each do |contributor| %>
-       <div class="card w-25 mx-auto mt-4 shadow-lg">
-          <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
-            <%= image_tag contributor.get_profile_image(100,100) %></br>
-            <%= contributor.brand_name %></br>
-          <% end %>
-       </div>
-      <% end %>
+  <h1 class="title">Brand</h1>
+    <div class="container">
+      <div class="step-box">
+        <% @contributors.each do |contributor| %>
+          <div class="card  shadow-lg">
+            <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
+              <div class="step-image"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
+              <div class="step-name"><%= contributor.brand_name %></div></br>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 </div>
