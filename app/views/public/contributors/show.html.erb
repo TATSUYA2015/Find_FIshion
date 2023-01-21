@@ -1,11 +1,11 @@
 <link rel="stylesheets" href="public/contribuctor.scss"/>
 
-<h1 class="text-center"><%= @contributor.brand_name %></h1>
 <div class="brand-area1">
     <div class="container">
         <div class="row">
             <%= image_tag @contributor.get_profile_image(500,500) %>
             <div class="brand-area2">
+            <h1 class="text-center"><%= @contributor.brand_name %></h1>
             <p class="brand-explanation">ブランド説明</p>
             <% if current_customer.following?(@contributor) %>
                 <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
@@ -34,6 +34,8 @@
                 <% end %>
             <% end %>
         <% end %>
-        <%= paginate @items %>
+    </div>
+    <div class="pa">
+        <div><%= paginate @items %></div>
     </div>
 </div>

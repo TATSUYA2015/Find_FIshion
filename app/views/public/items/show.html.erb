@@ -1,36 +1,44 @@
-<h2>商品名　<%= @item.name %></h2>
-<%= image_tag @item.image,size:"300x300"  %></br>
-商品説明：<%= @item.introduction %><br>
+<link rel="stylesheets" href="public/items.scss"/>
 
-<% if @item.favorited_by?(current_customer) %>
-    <p>
-      <%= link_to item_favorites_path(@item), method: :delete do %>
-        ♥<%= @item.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to item_favorites_path(@item), method: :post do %>
-        ♡<%= @item.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-
-<p>コメント件数:<%= @item.comments.count %></p>
-<p>
-  <% @item.comments.each do |comment| %>
-    <%= image_tag comment.customer.get_profile_image(50,50) %>
-    <%= comment.customer.account %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %></br>
-    <%= comment.introduction %>
-    <% if comment.customer == current_customer %>
-      <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
-    <% end %>
-  <% end %>
-</p>
-<p>
-  <%= form_with model: [@item, @comment] do |f| %>
-    <%= f.text_area :introduction, rows: '5', placeholder: "コメントをここに" %></br>
-    <%= f.submit "送信する" %>
-  <% end %>
-</p>
+<div class="">
+  <div class="container">
+    <div class="row">
+      <%= image_tag @item.image,size:"500x500"  %>
+      <div class="">
+        <h1 class="text-center"><%= @item.name %></h1>
+        <p class="">商品説明：<%= @item.introduction %></p>
+        <% if @item.favorited_by?(current_customer) %>
+          <p>
+            <%= link_to item_favorites_path(@item), method: :delete do %>
+              ♥<%= @item.favorites.count %> いいね
+            <% end %>
+          </p>
+        <% else %>
+          <p>
+            <%= link_to item_favorites_path(@item), method: :post do %>
+              ♡<%= @item.favorites.count %> いいね
+            <% end %>
+          </p>
+        <% end %>
+        <div class="">コメント件数:<%= @item.comments.count %></div>
+        <div class="">
+        <% @item.comments.each do |comment| %>
+            <%= image_tag comment.customer.get_profile_image(50,50) %>
+            <%= comment.customer.account %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+            <%= comment.introduction %>
+          <% if comment.customer == current_customer %>
+            <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
+          <% end %>
+        <% end %>
+        </div>
+        <div class="">
+          <%= form_with model: [@item, @comment] do |f| %>
+            <%= f.text_area :introduction, rows: '5', placeholder: "コメントをここに" %></br>
+            <%= f.submit "送信する" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

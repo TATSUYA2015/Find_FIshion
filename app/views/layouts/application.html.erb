@@ -81,7 +81,7 @@
               </li>
             <% else %>
               <li class="nav-item">
-                < %= link_to"管理者Log_in",new_web_admin_session_path, class: "btn btn-outline-secondary mr-3vw" %>
+                <%= link_to"管理者Log_in",new_web_admin_session_path, class: "btn btn-outline-secondary mr-3vw" %>
               </li>
               <li class="nav-item">
                 <%= link_to"投稿者Log_in",new_contributor_session_path, class: "btn btn-outline-secondary mr-3vw" %>
@@ -95,7 +95,7 @@
       </div>
     </header>
     <main>
-      <%= yield %>
+        <%= yield %>
     </main>
     <footer>
       <div class="footername">
