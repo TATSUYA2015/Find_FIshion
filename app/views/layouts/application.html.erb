@@ -11,11 +11,10 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class="navbar navbar-fixed-top">
-    <nav class="navbar navbar-light bg-light">
-      <div class="container">
+    <header>
+    <nav class="navbar-light">
+      <div class="container d-flex align-items-center">
         <a class="navbar-brand p-3" href="/"><%= image_tag('Find_Fashion_log.png',size:'150x50') %></a>
-        <div class="text-right">
           <% if customer_signed_in? %>
             <%= form_with url: search_path, local: true, method: :get do |f| %>
             <%= f.text_field :word %>
@@ -25,11 +24,12 @@
             <% end %>
           <% else %>
           <% end %>
+        <div class="ml-auto">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="nav">
+            <ul class="navbar-nav m-auto">
               <% if web_admin_signed_in? %>
                 <li class="nav-item">
                   <%= link_to"トップページ", web_admin_homes_top_path, class: "btn btn-outline-secondary mr-3vw" %>
@@ -88,10 +88,11 @@
               <% end %>
             </ul>
           </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
     <main>
         <%= yield %>
     </main>
