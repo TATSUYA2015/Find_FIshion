@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.background{
+ 	background: url("main.jpg") fixed center no-repeat;
+ 	background-size: 100%;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
 h1 {
   font-family:'Sacramento', cursive;
 }
