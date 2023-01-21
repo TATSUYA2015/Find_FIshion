@@ -1,7 +1,13 @@
-<h2>お気に入り一覧</h2>
-<% @favorite_items.each do |item|%>
-  <%= link_to item_path(item) do %>
-    <%= image_tag item.image ,size:'100x100' %>
-    <%= item.name %></br>
-  <% end %>
-<% end %>
+<link rel="stylesheets" href="public/favorites.scss"/>
+<div class="background">
+  <h1 class="text-center">お気に入り一覧</h1>
+  <div class="favorite-area">
+    <% @favorite_items.each do |item|%>
+      <div class="favorites">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.image ,size:'100x100' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
