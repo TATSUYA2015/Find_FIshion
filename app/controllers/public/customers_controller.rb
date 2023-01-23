@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer=Customer.find(params[:id])
+    #自身以外のIDだけ認識
     @customers=Customer.where.not(id: current_customer.id)
   end
 

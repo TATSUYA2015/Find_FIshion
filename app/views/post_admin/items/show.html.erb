@@ -1,19 +1,24 @@
-<h1>商品詳細画面</h1>
-商品名:<%= @item.name %></br>
-<%= image_tag @item.image %></br>
-<%= @item.genre.name %></br>
-商品説明:<%= @item.introduction %></br>
- ♥<%= @item.favorites.count %> いいね</br>
-<p>コメント件数:<%= @item.comments.count %></p>
-<p>
-  <% @item.comments.each do |comment| %>
-    <%= image_tag comment.customer.get_profile_image(50,50) %>
-    <%= comment.customer.account %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %></br>
-    <%= comment.introduction %>
-    <% if comment.customer == current_customer %>
-      <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
-    <% end %>
-  <% end %>
-</p>
-<%= link_to "Edit", edit_post_admin_item_path %>
+<link rel="stylesheets" href="post_admin/items.scss"/>
+<div class="item-area1">
+  <div class="container">
+    <div class="row">
+      <%= image_tag @item.image,size:"500x500"  %>
+      <div class="item-area2">
+        <h1 class="text-center"><%= @item.name %></h1>
+        <p class="">商品説明：<%= @item.introduction %></p>
+        <%= link_to "Edit", edit_post_admin_item_path %></br>
+         ♥<%= @item.favorites.count %> いいね
+        <div class="">コメント件数:<%= @item.comments.count %></div>
+        <div class="">
+          <% @item.comments.each do |comment| %>
+            <%= image_tag comment.customer.get_profile_image(50,50) %>
+            <%= comment.customer.account %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+            <%= comment.introduction %>
+            <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
