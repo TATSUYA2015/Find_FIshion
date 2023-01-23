@@ -1,3 +1,12 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.customer-block{
+  margin:  0 auto; 
+}
+.customer-area{
+  display: flex;
+  align-content: center;
+}

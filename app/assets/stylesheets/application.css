@@ -20,25 +20,21 @@
   }
 
   header{
-    margin-top: auto;
     background-color: #555555;
     text-align: center;
-    padding: 30px 0;
-    /*position: sticky;*/
+    padding: 30px;
     top: 0;
   }
 
-  /*body {*/
-  /* display: flex;*/
-  /* flex-direction: column;*/
-  /*}*/
+h2{
+    padding-top: 20px
+}
 
   footer{
     margin-top: auto;
     background-color: #555555;
     text-align: center;
     padding: 30px 0;
-    /*position: sticky;*/
     bottom: 0; /*下に固定*/
   }
 

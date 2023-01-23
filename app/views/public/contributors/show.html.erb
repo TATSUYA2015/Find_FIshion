@@ -9,11 +9,11 @@
             <p class="brand-explanation">ブランド説明</p>
             <% if current_customer.following?(@contributor) %>
                 <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
-                <button type="button" class="btn btn-dark">フォロー解除<bottom>
+                <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー解除<bottom>
                 <% end %>
             <% else %>
                 <%= link_to contributor_relationships_path(@contributor), method: :post do %>
-                <button type="button" class="btn btn-dark">フォロー</bottom>
+                <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー</bottom>
                 <% end %>
             <% end %>
             </div>

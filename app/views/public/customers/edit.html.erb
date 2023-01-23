@@ -1,13 +1,37 @@
-<h1>アカウント編集画面</h1>
-<%= image_tag @customer.get_profile_image(100,100) %></br>
-<%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
-氏名:<%= f.text_field :last_name %> <%= f.text_field :first_name %></br>
-カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></br>
-アカウント名:<%= f.text_field :account %></br>
-アカウント画像:<%= f.file_field :profile_image, accept: "image/*" %></br>
-Email:<%= f.text_field :email %></br>
-郵便番号:<%= f.text_field :postal_code %></br>
-住所:<%= f.text_field :address %></br>
-電話番号:<%= f.text_field :telephone_number %></br>
-<%= f.submit "Keep" %>/<%=link_to "Withdrawal", unsubscribe_path %>
-<% end %>
+<link rel="stylesheets" href="public/customers.scss"/>
+<h2 class="text-center">My_Page</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-ms-6">
+      <%= image_tag @customer.get_profile_image(300,300) %>
+    </div>
+    <div class="col-md-6 col-ms-6">
+      <table>
+        <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
+        <tr>
+          <th>氏名:<%= f.text_field :last_name %> <%= f.text_field :first_name %></th>
+        </tr>
+        <tr>
+          <th>カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %>
+          </th>
+        <tr>
+          <th>アカウント名:<%= f.text_field :account %></th>
+        </tr>
+        <tr>
+          <th>アカウント画像:<%= f.file_field :profile_image, accept: "image/*" %></th>
+        </tr>
+        <tr>
+          <th>Email:<%= f.text_field :email %></th>
+        </tr>
+        <tr>
+          
+        <tr>
+          郵便番号:<%= f.text_field :postal_code %></br>
+          住所:<%= f.text_field :address %></br>
+          電話番号:<%= f.text_field :telephone_number %></br>
+          <%= f.submit "Keep" %>/<%=link_to "Withdrawal", unsubscribe_path %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
