@@ -1,6 +1,7 @@
 class PostAdmin::ContributorsController < ApplicationController
   def show
     @contributor=Contributor.find(params[:id])
+    @contributors=Contributor.where.not(id: current_contributor.id)
   end
 
   def edit

@@ -24,12 +24,17 @@
           <th>Email:<%= f.text_field :email %></th>
         </tr>
         <tr>
-          
+          <th>郵便番号:<%= f.text_field :postal_code %></th>
         <tr>
-          郵便番号:<%= f.text_field :postal_code %></br>
-          住所:<%= f.text_field :address %></br>
-          電話番号:<%= f.text_field :telephone_number %></br>
-          <%= f.submit "Keep" %>/<%=link_to "Withdrawal", unsubscribe_path %>
+        <tr>
+          <th>住所:<%= f.text_field :address %></th>
+        </tr>
+        <tr>
+          <th>電話番号:<%= f.text_field :telephone_number %></th>
+        </tr>
+        <tr>
+          <th><%= f.submit "Keep" %>/<%=link_to "Withdrawal", unsubscribe_path %></th>
+        </tr>
         <% end %>
       </table>
     </div>
