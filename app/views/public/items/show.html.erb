@@ -25,10 +25,10 @@
             <%= image_tag comment.customer.get_profile_image(50,50) %>
             <%= comment.customer.account %>
             <%= comment.created_at.strftime('%Y/%m/%d') %></br>
-            <%= comment.introduction %>
-          <% if comment.customer == current_customer %>
-            <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %>
-          <% end %>
+            <%= comment.introduction %></br>
+            <% if comment.customer == current_customer %>
+              <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %></br>
+            <% end %>
         <% end %>
         </div>
         <div class="">
