@@ -43,6 +43,5 @@ class PostAdmin::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:genre_id, :name, :image, :introduction)
   end
-
 end
 
