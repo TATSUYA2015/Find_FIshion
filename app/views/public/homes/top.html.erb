@@ -5,7 +5,7 @@
       <div class="step-box1-1">
         <% @contributors.each do |contributor| %>
           <div class="card  shadow">
-            <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
+            <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
               <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
               <div class="step-name1-1"><%= contributor.brand_name %></div></br>
             <% end %>

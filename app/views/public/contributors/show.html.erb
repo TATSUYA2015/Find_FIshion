@@ -1,4 +1,5 @@
 <link rel="stylesheets" href="public/contribuctor.scss"/>
+
 <div class="brand-area1">
     <div class="container">
         <div class="row">
@@ -7,11 +8,11 @@
             <h1 class="text-center"><%= @contributor.brand_name %></h1>
             <p class="brand-explanation">ブランド説明</p>
             <% if current_customer.following?(@contributor) %>
-                <%= link_to contributor_relationships_path(@contributor), method: :delete do %>
+                <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :delete do %>
                 <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー解除<bottom>
                 <% end %>
             <% else %>
-                <%= link_to contributor_relationships_path(@contributor), method: :post do %>
+                <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :post do %>
                 <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー</bottom>
                 <% end %>
             <% end %>
@@ -24,7 +25,7 @@
     <div class="step-box1-2">
         <% @items.each do |item| %>
             <% if item.contributor.id == @contributor.id %>
-                <%= link_to item_path(item.id) do %>
+                <%= link_to item_path(item.id), class: "text-secondary"  do %>
                     <div class="card  shadow-lg">
                       <%= image_tag item.image,size:"300x300" %></br>
                       <%= item.name %></br>

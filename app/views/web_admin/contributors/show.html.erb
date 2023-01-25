@@ -38,7 +38,7 @@
           </th>
         </tr>
         <tr>
-          <th><%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id) %></th>
+          <th><%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id),class: "btn btn-outline-secondary mr-3vw" %></th>
         </tr>
       </table>
     </div>
@@ -56,7 +56,7 @@
     <div class="step-box1-2">
         <% @items.each do |item| %>
             <% if item.contributor.id == @contributor.id %>
-                <%= link_to item_path(item.id) do %>
+                <%= link_to web_admin_item_path(item.id), class: "text-secondary" do %>
                     <div class="card  shadow-lg">
                       <%= image_tag item.image,size:"300x300" %></br>
                       <%= item.name %></br>

@@ -30,7 +30,16 @@
           <th>電話番号:<%= @customer.telephone_number %></th>
         </tr>
         <tr>
-          <th><%= link_to"Edit",edit_web_admin_customer_path %></th>
+          <th>
+            <% if @customer.is_deleted %>
+              退会済み
+            <% else %>
+              有効
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th><%= link_to"Edit",edit_web_admin_customer_path,class: "btn btn-outline-secondary mr-3vw" %></th>
         </tr>
       </table>
     </div>

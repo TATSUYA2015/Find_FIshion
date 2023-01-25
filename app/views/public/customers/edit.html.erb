@@ -33,7 +33,7 @@
           <th>電話番号:<%= f.text_field :telephone_number %></th>
         </tr>
         <tr>
-          <th><%= f.submit "Keep" %>/<%=link_to "Withdrawal", unsubscribe_path %></th>
+          <th><%= f.submit "Keep", class: "btn btn-outline-secondary mr-3vw" %>/<%=link_to "Withdrawal", unsubscribe_path, class: "btn btn-outline-secondary mr-3vw" %></th>
         </tr>
         <% end %>
       </table>

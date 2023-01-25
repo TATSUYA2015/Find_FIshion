@@ -1,7 +1,24 @@
-<h1>商品詳細画面</h1>
-<%= @item.name %></br>
-<%= image_tag @item.image %></br>
-<%= @item.genre.name %></br>
-♡<%= @item.favorites.count %> いいね</br>
-<%= @item.introduction %></br>
-<%= link_to "Edit", edit_web_admin_item_path %>
+<h2 class="text-center">商品詳細画面</h1>
+<div class="item-area1">
+  <div class="container">
+    <div class="row">
+      <%= image_tag @item.image,size:"500x500" %>
+      <div class="item-area2">
+        <h1 class="text-center"><%= @item.name %></h1>
+        <p class="">商品説明：<%= @item.introduction %></p>
+        <%= link_to "Edit", edit_web_admin_item_path, class: "btn btn-outline-secondary mr-3vw" %></br>
+         ♥<%= @item.favorites.count %> いいね
+        <div class="">コメント件数:<%= @item.comments.count %></div>
+        <div class="">
+          <% @item.comments.each do |comment| %>
+            <%= image_tag comment.customer.get_profile_image(50,50) %>
+            <%= comment.customer.account %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %></br>
+            <%= comment.introduction %>
+            <%= link_to "削除", item_comment_path(comment.item, comment) ,class: "btn btn-outline-secondary mr-3vw", method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
