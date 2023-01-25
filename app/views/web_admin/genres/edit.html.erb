@@ -1,6 +1,14 @@
-<h1>Genre編集画面</h1>
-<%= form_with model: @genre, url: web_admin_genre_path, method: :patch do |f| %>
-<p>Genre name</p>
-<%= f.text_field :name %>
-<%= f.submit'Edit' %>
-<% end %>
+<div class="container">
+  <h2 class="text-center">ジャンル編集</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-8">
+      <div class="col-md-3 col-sm-3">Genre_Name</div>
+      <%= form_with model: @genre, url: web_admin_genre_path, method: :patch do |f| %>
+      <div class="col-md-6 col-sm-6"><%= f.text_field :name %></div>
+      <div class="col-md-3 col-sm-6"><%= f.submit 'Edit', {class: "btn btn-success"} %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
