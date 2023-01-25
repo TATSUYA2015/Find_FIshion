@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-6 col-ms-6">
       <table>
-        <%= form_with model: @contributor, url:post_admin_contributor_path, method: :patch do |f| %>
+        <%= form_with model: @contributor, url: post_admin_contributor_path, method: :patch do |f| %>
         <tr>
           <th>氏名:<%= f.text_field :last_name %> <%= f.text_field  :first_name %></th>
         </tr>

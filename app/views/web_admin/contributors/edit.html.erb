@@ -1,19 +1,50 @@
-<h1><%= @contributor.brand_name %>のアカウント編集画面</h1>
-<%= image_tag @contributor.get_profile_image(100,100) %></br>
+<h2 class="text-center"><%= @contributor.brand_name %>のアカウント編集画面</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-ms-6">
+      <%= image_tag @contributor.get_profile_image(300,300) %>
+    </div>
+    <div class="col-md-6 col-ms-6">
+      <table>
+        <%= form_with model: @contributor, url: web_admin_contributor_path, method: :patch do |f| %>
+        <tr>
+          <th>氏名:<%= f.text_field :last_name %> <%= f.text_field  :first_name %></th>
+        </tr>
+        <tr>
+          <th>カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></th>
+        <tr>
+          <th>ブランド名:<%= f.text_field :brand_name %></th>
+        </tr>
+        <tr>
+          <th>ブランド画像:<%= f.file_field :profile_image, accept: "image/*" %></th>
+        </tr>
+        <tr>
+          <th>E-mail:<%= f.text_field :email %></th>
+        </tr>
+        <tr>
+          <th>郵便番号:<%= f.text_field :postal_code %></th>
+        <tr>
+        <tr>
+          <th>住所:<%= f.text_field :address %></th>
+        </tr>
+        <tr>
+          <th>電話番号:<%= f.text_field :telephone_number %></th>
+        </tr>
+        <tr>
+          <th>
+            退会ステータス</br>
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :is_deleted, "有効" %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :is_deleted, "退会" %>
+          </th>
+        </tr>
 
-<%= form_with model: @contributor, url: web_admin_contributor_path, method: :patch do |f| %>
-氏名:<%= f.text_field :last_name %> <%= f.text_field  :first_name %></br>
-カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></br>
-ブランド名:<%= f.text_field :brand_name %></br>
-ブランド画像:<%= f.file_field :profile_image, accept: "image/*" %></br>
-E-mail:<%= f.text_field :email %></br>
-郵便番号:<%= f.text_field :postal_code %></br>
-住所:<%= f.text_field :address %><br>
-電話番号:<%= f.text_field :telephone_number %></br>
-退会ステータス</br>
-<%= f.radio_button :is_deleted, false %>
-<%= f.label :is_deleted, "有効" %>
-<%= f.radio_button :is_deleted, true %>
-<%= f.label :is_deleted, "退会" %>
-<%= f.submit"Keep"%>
-<% end %>
+        <tr>
+          <th><%= f.submit"Keep"%></th>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

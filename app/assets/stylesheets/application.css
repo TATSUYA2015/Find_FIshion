@@ -19,24 +19,30 @@
    box-sizing: border-box;
   }
 
-  header{
-    background-image: url("main.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 65vh;
-    padding-top: 36px;
+header{
+  background-image: url("main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 65vh;
+  padding-top: 36px;
+}
+
+main{
+  min-height:750px;
+  height:auto !important;
+  height:50px;
 }
 
 h2{
-    padding-top: 20px
+  padding-top: 20px
 }
 
 
 
-  footer{
-    background-color: #555555;
-    color: #ffffff;
-    padding-top: 2em;
-    padding-bottom: 1.2em;
+footer{
+  background-color: #555555;
+  color: #ffffff;
+  padding-top: 2em;
+  padding-bottom: 1.2em;
 }

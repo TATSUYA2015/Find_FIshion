@@ -1,15 +1,15 @@
+<h1 class="text-center"><%= current_contributor.brand_name %></h1>
 
 
-<h1><%= current_contributor.brand_name %></h1>
 <p><%= link_to "+",new_post_admin_item_path %></p>
 <div>
     <% @items.each do |item| %>
       <% if item.contributor == current_contributor %>
         <%= link_to post_admin_item_path(item.id) do %>
-          <%= item.name %></br>
           <%= image_tag item.image,size:"300x300" %></br>
+          <%= item.name %></br>
           <%= item.introduction %></br>
-          <% end %>
+        <% end %>
       <% end %>
     <% end %>
 </div>

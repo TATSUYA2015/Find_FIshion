@@ -1,10 +1,38 @@
-<h1>利用者アカウント詳細画面</h1>
-<%= image_tag @customer.get_profile_image(100,100) %></br>
-氏名:<%= @customer.last_name %><%= @customer.first_name %></br>
-カナ:<%= @customer.last_name_kana %><%= @customer.first_name_kana %></br>
-アカウント名:<%= @customer.account %></br>
-E-mail:<%= @customer.email %></br>
-郵便番号: <%= @customer.postal_code %></br>
-住所:<%= @customer.address %></br>
-電話番号:<%= @customer.telephone_number %></br>
-<%= link_to"Edit",edit_web_admin_customer_path %>
+<link rel="stylesheets" href="public/customers.scss"/>
+<h2 class="text-center"><%= @customer.account %>アカウント詳細画面</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-ms-6">
+      <%= image_tag @customer.get_profile_image(300,300) %>
+    </div>
+    <div class="col-md-6 col-ms-6">
+      <table>
+        <tr>
+          <th><%= @customer.followings.count %>フォロー数</th>
+        </tr>
+        <tr>
+          <th>氏名:<%= @customer.last_name %> <%= @customer.first_name %></th>
+        </tr>
+        <tr>
+          <th>カナ:<%= @customer.last_name_kana %> <%= @customer.first_name_kana %></th>
+        </tr>
+        <tr>
+          <th>アカウント名:<%= @customer.account %></th>
+        </tr>
+          <th>E-mail:<%= @customer.email %></th>
+        <tr>
+          <th>郵便番号:<%= @customer.postal_code %></th>
+        </tr>
+        <tr>
+          <th>住所:<%= @customer.address %></th>
+        </tr>
+        <tr>
+          <th>電話番号:<%= @customer.telephone_number %></th>
+        </tr>
+        <tr>
+          <th><%= link_to"Edit",edit_web_admin_customer_path %></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

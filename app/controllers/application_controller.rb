@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when Contributor
       post_admin_items_path
     when Customer
-      homes_top_path
+      root_path
     end
   end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     if resource == :web_admin
       new_web_admin_session_path
     else
-      new_web_admin_session_path
+      root_path
     end
    end
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     if resource == :post_admin
       new_contributor_session_path
     else
-      contributor_session_path
+      root_path
     end
    end
 
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if resource == :public
       new_customer_session_path
     else
-      customer_session_path
+      root_path
     end
    end
 
