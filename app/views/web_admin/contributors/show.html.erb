@@ -29,6 +29,15 @@
           <th>電話番号:<%= @contributor.telephone_number %></th>
         </tr>
         <tr>
+          <th>
+            <% if @contributor.is_deleted %>
+              退会済み
+            <% else %>
+              有効
+            <% end %>
+          </th>
+        </tr>
+        <tr>
           <th><%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id) %></th>
         </tr>
       </table>
@@ -41,16 +50,19 @@
 <%# @follower.customers.each do |customer| %>
   <%#= customer.account %></br>
 <%# end %>
-
-</br>
 </br>
 <h2 class="text-center">投稿一覧</h2>
-<div>
-  <% @contributor.items.each do |item| %>
-    <%= link_to web_admin_item_path(item.id) do %>
-      <%= item.name %></br>
-      <%= image_tag item.image,size:'300x300' %></br>
-      <%= item.introduction %></br>
-      <% end %>
-    <% end %>
+<div class="container">
+    <div class="step-box1-2">
+        <% @items.each do |item| %>
+            <% if item.contributor.id == @contributor.id %>
+                <%= link_to item_path(item.id) do %>
+                    <div class="card  shadow-lg">
+                      <%= image_tag item.image,size:"300x300" %></br>
+                      <%= item.name %></br>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
 </div>
