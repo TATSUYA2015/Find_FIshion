@@ -2,7 +2,7 @@
   <div class="background">
     <h1 class="title">Brand</h1>
     <div class="container">
-      <div class="step-box1-1">
+      <div class="row step-box1-1">
         <% @contributors.each do |contributor| %>
           <div class="card  shadow">
             <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->

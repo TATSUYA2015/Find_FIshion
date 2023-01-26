@@ -25,7 +25,7 @@
     <div class="step-box1-2">
         <% @items.each do |item| %>
             <% if item.contributor.id == @contributor.id %>
-                <%= link_to item_path(item.id), class: "text-secondary"  do %>
+                <%= link_to item_path(item.id), class: "text-secondary" do %>
                     <div class="card  shadow-lg">
                       <%= image_tag item.image,size:"300x300" %></br>
                       <%= item.name %></br>
