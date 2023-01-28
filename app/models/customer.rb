@@ -63,8 +63,6 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-
-
   validates :last_name,            presence: true, length: { minimum: 1}
   validates :first_name,           presence: true, length: { minimum: 1}
   validates :last_name_kana,       presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
@@ -73,5 +71,15 @@ class Customer < ApplicationRecord
   validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :address,              presence: true, length: { minimum: 1}
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
+
+
+  # validates :last_name,            presence: true, length: { minimum: 1}
+  # validates :first_name,           presence: true, length: { minimum: 1}
+  # validates :last_name_kana,       presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  # validates :first_name_kana,      presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  # validates :account,              presence: true
+  # validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+  # validates :address,              presence: true, length: { minimum: 1}
+  # validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
 
 end
