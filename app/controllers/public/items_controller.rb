@@ -19,6 +19,7 @@ class Public::ItemsController < ApplicationController
     params.require(:item).permit(:contributor_id, :genre_id, :name, :image, :introduction)
   end
 
+
   def comment_params
     params.require(:comment).permit(:item_id, :customer_id, :introduction)
   end
