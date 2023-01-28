@@ -4,28 +4,30 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
            # Twitter API認証用に追加
-         :omniauthable, omniauth_providers: [:twitter]
+         :omniauthable, omniauth_providers: [:twitter, :google_oauth2]
+
 
   # Twitter認証ログイン用
   # ユーザーの情報があれば探し、無ければ作成する
   def self.find_for_oauth(auth)
+    #↓これでどの情報がTwitterから飛んできてるかターミナルに表示される。
+    #pp auth
     customer = Customer.find_by(uid: auth.uid, provider: auth.provider)
-    name = "Twitterユーザー" if auth[:info][:name] == nil
+    name = "ネームを登録してね！！" if auth[:info][:name] == nil
     customer ||= Customer.create!(
       uid: auth.uid,
       provider: auth.provider,
-      first_name: name,
+      name: name,
+      # first_name: name,
+      #E-mailはTwitterログインでは取得できない
       email: Customer.dummy_email(auth),
       password: Devise.friendly_token[0, 20],
-      last_name: "@",
-      last_name_kana: "ツイッター",
-      first_name_kana: "ツイッター",
+      # last_name: "@",
+      # last_name_kana: "ツイッター",
+      # first_name_kana: "ツイッター",
       account: "twitter",
-      postal_code:"000-0000",
-      address:"＠",
       telephone_number:"000-0000-0000"
     )
-
     customer
   end
 
@@ -63,13 +65,8 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  validates :last_name,            presence: true, length: { minimum: 1}
-  validates :first_name,           presence: true, length: { minimum: 1}
-  validates :last_name_kana,       presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
-  validates :first_name_kana,      presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :name,                 presence: true, length: { minimum: 1}
   validates :account,              presence: true
-  validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-  validates :address,              presence: true, length: { minimum: 1}
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
 
 

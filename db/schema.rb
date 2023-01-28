@@ -70,15 +70,10 @@ ActiveRecord::Schema.define(version: 2023_01_15_130943) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
+    t.string "name", default: "", null: false
     t.string "account", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "postal_code", default: "", null: false
-    t.string "address", default: "", null: false
     t.string "telephone_number", default: "", null: false
     t.boolean "is_deleted", default: false, null: false
     t.string "uid"

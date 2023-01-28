@@ -25,6 +25,7 @@
 <div class="text-center">
 <%= render "public/shared/links" %>
 </div>
+
 <div class="text-center">
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
@@ -33,3 +34,4 @@
     <% end %>
   <% end %>
 </div>
+
