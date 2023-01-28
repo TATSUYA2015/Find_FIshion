@@ -1,7 +1,6 @@
 <h1 class="text-center"><%= current_contributor.brand_name %></h1>
-
-
-<p><%= link_to "+",new_post_admin_item_path %></p>
+<div><%= link_to "+", new_post_admin_item_path, class: "btn-secondary rounded-circle btn-lg" %></div>
+</br>
 <div>
     <% @items.each do |item| %>
       <% if item.contributor == current_contributor %>
