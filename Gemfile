@@ -61,4 +61,6 @@ gem 'pry-byebug'
 gem "enum_help"
 gem 'image_processing', '~> 1.2'
 gem 'bootstrap', '~> 4.5'
-
+gem 'omniauth', '1.9.1'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'

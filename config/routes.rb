@@ -35,7 +35,9 @@ Rails.application.routes.draw do
 
   devise_for :customer, skip: [:passwords], controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: 'public/sessions',
+      # Twitter API認証用
+    :omniauth_callbacks => 'public/omniauth_callbacks',
   }
 
   scope module: :public do
