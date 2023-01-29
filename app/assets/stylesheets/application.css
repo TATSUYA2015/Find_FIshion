@@ -19,7 +19,14 @@
    box-sizing: border-box;
   }
 
-header{
+  body{
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+  }
+
+#top_header{
   background-image: url("main.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,17 +35,19 @@ header{
   padding-top: 36px;
 }
 
+  .top{
+    font-family: 'Athelas';
+    font-size: 50px;
+  }
+
+
 main{
-  min-height:750px;
-  height:auto !important;
-  height:50px;
+flex: 1;
 }
 
 h2{
   padding-top: 20px
 }
-
-
 
 footer{
   background-color: #555555;

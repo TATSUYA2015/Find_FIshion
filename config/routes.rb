@@ -42,7 +42,6 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root  'homes#top'
-    get 'homes/top'
     get 'home/about' => 'homes#about', as: 'about'
     get "search" => "searches#search"
     resources :contributors do

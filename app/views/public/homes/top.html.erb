@@ -1,19 +1,101 @@
-<link rel="stylesheets" href="public/homes.scss"/>
-  <div class="background">
-    <h1 class="title">Brand</h1>
-    <div class="container">
-      <div class="row step-box1-1">
-        <% @contributors.each do |contributor| %>
-          <div class="card  shadow">
-            <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
-              <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
-              <div class="step-name1-1"><%= contributor.brand_name %></div></br>
+<!--<link rel="stylesheets" href="public/homes.scss"/>-->
+   <header id="top_header">
+      <nav class="navbar-light">
+        <div class="container d-flex align-items-center ">
+          <div class="top"><a class="navbar-brand p-3" href="/">Faind_Fashion</a></div>
+          <% if customer_signed_in? %>
+            <%= form_with url: search_path, local: true, method: :get do |f| %>
+              <%= f.text_field :word %>
+              <%= f.select :range, options_for_select([['brand_name'], ['item']]) %>
+              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+              <%= f.submit "検索", class: "btn btn-primary" %>
             <% end %>
+          <% else %>
+          <% end %>
+          <div class="ml-auto">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
           </div>
-        <% end %>
-      </div>
+        </div>
+      </nav>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <% if web_admin_signed_in? %>
+              <li class="nav-item">
+                <%= link_to"トップページ", web_admin_homes_top_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"投稿者一覧", web_admin_contributors_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"利用者一覧", web_admin_customers_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Genre一覧", web_admin_genres_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Log_out",destroy_web_admin_session_path, class: "btn btn-light btn-block" , method: :delete %>
+              </li>
+            <% elsif contributor_signed_in? %>
+              <li class="nav-item">
+                <%= link_to"投稿一覧", post_admin_items_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Follor", followers_post_admin_contributor_path(current_contributor.id), class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"My_page", post_admin_contributor_path(current_contributor.id), class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Log_out",destroy_contributor_session_path, class: "btn btn-light btn-block" , method: :delete %>
+              </li>
+            <% elsif customer_signed_in? %>
+              <li class="nav-item">
+                <%= link_to"About", about_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Follor", followings_customer_path(current_customer.id), class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%=link_to"お気に入り一覧", favorites_item_path(current_customer.id), class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"My_page", customer_path(current_customer.id), class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"Log_out",destroy_customer_session_path, class: "btn btn-light btn-block" , method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to"管理者Log_in",new_web_admin_session_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to"投稿者Log_in",new_contributor_session_path, class: "btn btn-light btn-block" %>
+              </li>
+              <li class=" nav-item">
+                <%= link_to"利用者Log_in",new_customer_session_path, class: "btn btn-light btn-block" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+    </header>
+
+<div class="background">
+  <h1 class="title">Brand</h1>
+  <div class="container">
+    <div class="row step-box1-1">
+      <% @contributors.each do |contributor| %>
+        <div class="card  shadow">
+          <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
+            <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
+            <div class="step-name1-1"><%= contributor.brand_name %></div></br>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
 </div>
 <div class="pagination">
-  <p><%= paginate @contributors %></p>
+<p><%= paginate @contributors %></p>
 </div>

@@ -30,7 +30,6 @@ class Customer < ApplicationRecord
     )
     customer
   end
-
   # ダミーのメールアドレスを作成
   def self.dummy_email(auth)
     "#{Time.now.strftime('%Y%m%d%H%M%S').to_i}-#{auth.uid}-#{auth.provider}@example.com"

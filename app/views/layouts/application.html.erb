@@ -5,16 +5,20 @@
     <title>Find_Fashion</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    　<!-- デプロイするときにシークレットを使って検証しよう-->
+      <%#= stylesheet_link_tag 'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% unless current_page?(root_path) %>
     <header>
       <nav class="navbar-light">
-        <div class="container d-flex align-items-center">
-          <a class="navbar-brand p-3" href="/"><%= image_tag('Find_Fashion_log.png',size:'150x50') %></a>
+        <div class="container d-flex align-items-center ">
+          <div class="text-center"><a class="navbar-brand p-3" href="/">Faind_Fashion</a></div>
           <% if customer_signed_in? %>
             <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.text_field :word %>
@@ -92,6 +96,7 @@
           </ul>
         </div>
     </header>
+    <% end %>
 
 
     <main>
