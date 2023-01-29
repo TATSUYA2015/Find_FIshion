@@ -5,9 +5,8 @@
     <title>Find_Fashion</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    　<!-- デプロイするときにシークレットを使って検証しよう-->
+    <!-- デプロイするときにシークレットを使って検証しよう-->
       <%#= stylesheet_link_tag 'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -97,13 +96,9 @@
         </div>
     </header>
     <% end %>
-
-
     <main>
         <%= yield %>
     </main>
-
-
     <footer>
       <div class="text-center">
         ＠2023 Find_Fashion

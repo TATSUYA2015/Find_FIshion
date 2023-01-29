@@ -26,14 +26,13 @@
     min-height: 100vh;
   }
 
-#top_header{
-  background-image: url("main.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 65vh;
-  padding-top: 36px;
-}
+/*#top_header{*/
+/*  background-image: url("main.jpg");*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+/*  background-position: center center;*/
+/*  height: 65vh;*/
+/*}*/
 
   .top{
     font-family: 'Athelas';
