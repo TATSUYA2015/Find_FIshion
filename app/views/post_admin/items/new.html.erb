@@ -1,18 +1,18 @@
 <link rel="stylesheets" href="post_admin/items.scss"/>
 <div class="container">
-<h2 class="text-center">New_Item</h2>
+  <h2 class="text-center">New_Item</h2>
   <div class="row">
     <div class="col-md-3 col-ms-3"></div>
       <div class="col-md-6 col-ms-6">
-        <table>
-          <%= form_with model: @item, url:post_admin_items_path, method: :post do |f| %>
+        <%= form_with model: @item, url:post_admin_items_path, method: :post do |f| %>
+          <table>
             <tr><th>商品名:<%= f.text_field :name %></tr></th>
             <tr><th>商品画像：<%= f.file_field :image, accept: "image/*" %></th></tr>
             <tr><th>ジャンル:<%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></th></tr>
             <tr><th>商品説明:<%= f.text_area :introduction %></th></tr>
-            <tr><th><%= f.submit "keep" %></th></tr>
-          <% end %>
-        </table>
+            <tr><th><%= f.submit "keep", class: "btn btn-outline-secondary mr-3vw" %></th></tr>
+          </table>
+        <% end %>
       </div>
     <div class="col-md-3 col-ms-3"></div>
   </div>

@@ -2,6 +2,7 @@ class PostAdmin::ItemsController < ApplicationController
   def index
     @item=Item.new
     @items=Item.all
+    @contributor=Contributor.new
   end
 
   def new

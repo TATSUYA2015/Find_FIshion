@@ -30,7 +30,7 @@ class Contributor < ApplicationRecord
 
   #フォロー機能アソシエーション
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
-  has_many :followers, through: :relationships, source: :following
+  has_many :followers, through: :relationships, source: :following, dependent: :destroy
 
   has_one_attached :profile_image
   def get_profile_image(width,height)

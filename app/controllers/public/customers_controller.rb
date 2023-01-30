@@ -42,7 +42,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :account, :get_profile_image , :email, :telephone_number,:following_id)
+    params.require(:customer).permit(:name, :account, :profile_image , :email, :telephone_number,:following_id)
   end
 
   def contributor_paramas
