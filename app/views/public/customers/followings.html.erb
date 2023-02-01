@@ -5,7 +5,7 @@
     <div class="followings">
     <% @contributors.each do |contributor| %>
      <div class="card shadow">
-        <%= link_to contributor_path(contributor.id) do %> <!--各ブランド情報ページのリンク -->
+        <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
           <%= image_tag contributor.get_profile_image(162,211) %></br>
           <%= contributor.brand_name %></br>
         <% end %>

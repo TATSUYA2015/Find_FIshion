@@ -7,7 +7,7 @@ class Customer < ApplicationRecord
          :omniauthable, omniauth_providers: [:twitter, :google_oauth2]
 
 
-  # Twitter認証ログイン用
+  # Twitter,google認証ログイン用
   # ユーザーの情報があれば探し、無ければ作成する
   def self.find_for_oauth(auth)
     #↓これでどの情報がTwitterから飛んできてるかターミナルに表示される。

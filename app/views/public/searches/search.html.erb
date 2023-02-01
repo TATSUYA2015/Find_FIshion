@@ -1,31 +1,41 @@
-<h2>検索一覧</h2>
+<h2 class="text-center">検索一覧</h2>
 
-<table>
-  <!--検索対象モデルがcontributorの時 -->
-  <% if @range == "brand_name" %>
-    <tbody>
-      <% @contributors.each do |contributor| %>
-        <tr>
-          <td>
-            <%= link_to contributor_path(contributor.id) do %>
-              <%= contributor.brand_name %>
-            <% end %>
-          </td>
-        </tr>
+<div class="following-area">
+  <div class="followings">
+    <table>
+      <!--検索対象モデルがcontributorの時 -->
+      <% if @range == "brand_name" %>
+        <tbody>
+          <% @contributors.each do |contributor| %>
+            <tr>
+              <td>
+                <div class="card shadow">
+                  <%= link_to contributor_path(contributor.id) do %>
+                    <%= image_tag contributor.get_profile_image(162,211) %></br>
+                    <%= contributor.brand_name %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% else %>
+      <!--検索対象モデルがUserではない時(= 検索対象モデルがItemの時) -->
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td>
+                <div class="card shadow">
+                  <%= link_to item_path(item.id) do %>
+                    <%= image_tag item.image ,size:'162x211' %></br>
+                    <%= item.name %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
       <% end %>
-    </tbody>
-  <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがItemの時) -->
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <td>
-            <%= link_to item_path(item.id) do %>
-              <%= item.name %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  <% end %>
-</table>
+    </table>
+  </div>
+</div>

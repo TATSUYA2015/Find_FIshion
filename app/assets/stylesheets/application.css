@@ -19,6 +19,11 @@
    box-sizing: border-box;
   }
 
+  header{
+    background-color: #555555;
+    color: #ffffff;
+  }
+
   body{
     margin: 0;
     display: flex;
@@ -33,8 +38,65 @@
 
 
   main{
+    /*background-image: url("backimage.png");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     flex: 1;
   }
+
+  .sosyal {
+    margin: 10px auto;
+  }
+
+  .twitter {
+    background-color: #008DDE;
+    box-shadow: 0 4px 0 #0078BD;
+
+    display: inline;
+    position: relative;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 14px 80px;
+  }
+
+  .twitter:active {
+    top: 2px;
+	  box-shadow: 0 2px 0 #0078BD;
+  }
+
+  .twitter:hover {
+    background-color: #1397D8;
+  }
+
+  .google {
+    background-color: #CC3622;
+    box-shadow: 0 4px 0 #BA2714;
+
+    display: inline;
+    position: relative;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 14px 80px;
+  }
+  .google:active {
+    top: 2px;
+  	box-shadow: 0 2px 0 #BA2714;
+  }
+  .google:hover {
+    background-color: #D04829;
+  }
+
 
   h2{
     padding-top: 20px

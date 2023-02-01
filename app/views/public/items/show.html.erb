@@ -5,7 +5,7 @@
       <%= image_tag @item.image,size:"500x500"  %>
       <div class="item-area2">
         <h1 class="text-center"><%= @item.name %></h1>
-        <p class="">商品説明：<%= @item.introduction %></p>
+        <p>商品説明：<%= @item.introduction %></p>
         <% if @item.favorited_by?(current_customer) %>
           <p>
             <%= link_to item_favorites_path(@item), class: "text-danger", method: :delete do %>
@@ -19,22 +19,23 @@
             <% end %>
           </p>
         <% end %>
-        <div class="">コメント件数:<%= @item.comments.count %></div>
-        <div class="">
+        <div>コメント件数:<%= @item.comments.count %></div>
+        <div>
         <% @item.comments.each do |comment| %>
             <%= image_tag comment.customer.get_profile_image(50,50) %>
             <%= comment.customer.account %>
             <%= comment.created_at.strftime('%Y/%m/%d') %></br>
             <%= comment.introduction %></br>
             <% if comment.customer == current_customer %>
-              <%= link_to "削除", item_comment_path(comment.item, comment), method: :delete %></br>
+              <%= link_to "削除", item_comment_path(comment.item, comment), class: "btn btn-outline-secondary mr-3vw", method: :delete %></br>
             <% end %>
         <% end %>
         </div>
-        <div class="">
+        </br>
+        <div>
           <%= form_with model: [@item, @comment] do |f| %>
             <%= f.text_area :introduction, rows: '5', placeholder: "コメントをここに" %></br>
-            <%= f.submit "送信する" %>
+            <%= f.submit "送信する", class: "btn btn-outline-secondary mr-3vw" %>
           <% end %>
         </div>
       </div>
