@@ -2,69 +2,41 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "post_admin/shared/error_messages", resource: resource %>
-
-
   <div class="text-center">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, placeholder: "First_Name" %> <%= f.text_field :first_name, placeholder: "First_Name" %>
   </div>
+  </br>
+  <!--<div class="text-center">-->
+  <!--  <%#= f.label :first_name %>-->
+  <!--  <%#= f.text_field :first_name %>-->
+  <!--</div>-->
   <div class="text-center">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name_kana, placeholder: "Last_Name_カナ" %> <%= f.text_field :first_name_kana, placeholder: "First_Name_カナ" %>
   </div>
+  </br>
+  <!--<div class="text-center">-->
+  <!--  <%#= f.label :first_name_kana %>-->
+  <!--  <%#?= f.text_field :first_name_kana %>-->
+  <!--</div>-->
   <div class="text-center">
-    <%= f.label :last_name_kana %>
-    <%= f.text_field :last_name_kana %>
+    <%= f.text_field :brand_name, placeholder: "Brand_Name" %> <%= f.file_field :profile_image, accept: "image/*" %>
   </div>
+  </br>
   <div class="text-center">
-    <%= f.label :first_name_kana %>
-    <%= f.text_field :first_name_kana %>
+    <%= f.email_field :email, placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
   </div>
-  <div class="text-center">
-    <%= f.label :brand_name %>
-    <%= f.text_field :brand_name %>
-  </div>
-  <div class="text-center">
-    <%= f.label :profile_image %>
-    <%= f.file_field :profile_image, accept: "image/*" %>
-  </div>
-  <div class="text-center">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
   <div class="text-center">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, placeholder: "Password 6文字以上", autocomplete: "new-password" %> <%= f.password_field :password_confirmation, placeholder: "同じ Password", autocomplete: "new-password" %>
   </div>
-
   <div class="text-center">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.text_field :postal_code, placeholder: "〒◯◯◯-◯◯◯◯" %> <%= f.text_field :address, placeholder: "Address" %> <%= f.text_field :telephone_number, placeholder: "Tel" %>
   </div>
-
+  </br>
   <div class="text-center">
-    <%= f.label :postal_code %>
-  <%= f.text_field :postal_code %>
-  </div>
-
-  <div class="text-center">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="text-center">
-    <%= f.label :telephone_number %>
-    <%= f.text_field :telephone_number %>
-  </div>
-
-  <div class="text-center">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "btn btn-outline-secondary mr-3vw" %> <%= render "post_admin/shared/links" %>
   </div>
 <% end %>
-<div class="text-center">
-  <%= render "post_admin/shared/links" %>
-</div>

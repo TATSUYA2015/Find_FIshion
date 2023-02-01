@@ -1,37 +1,39 @@
 <h2 class="text-center">My_Page</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-ms-6">
-      <%= image_tag @contributor.get_profile_image(300,300) %>
-    </div>
-    <div class="col-md-6 col-ms-6">
-      <table>
-        <tr>
-          <th><%= @contributor.followers.count %>フォロー数</th>
-        </tr>
-        <tr>
-          <th>氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></th>
-        </tr>
-        <tr>
-          <th>カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></th>
-        </tr>
-        <tr>
-          <th>ブランド名:<%= @contributor.brand_name %></th>
-        </tr>
-          <th>E-mail:<%= @contributor.email %></th>
-        <tr>
-          <th>郵便番号:<%= @contributor.postal_code %></th>
-        </tr>
-        <tr>
-          <th>住所:<%= @contributor.address %></th>
-        </tr>
-        <tr>
-          <th>電話番号:<%= @contributor.telephone_number %></th>
-        </tr>
-        <tr>
-          <th><%= link_to "Edit",edit_post_admin_contributor_path(current_contributor.id), class: "btn btn-outline-secondary mr-3vw" %></th>
-        </tr>
-      </table>
+<div class="my-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-ms-6">
+        <%= image_tag @contributor.get_profile_image(300,300) %>
+      </div>
+      <div class="col-md-6 col-ms-6">
+        <table>
+          <tr>
+            <th><%= @contributor.followers.count %>フォロー数</th>
+          </tr>
+          <tr>
+            <th>氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></th>
+          </tr>
+          <tr>
+            <th>カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></th>
+          </tr>
+          <tr>
+            <th>ブランド名:<%= @contributor.brand_name %></th>
+          </tr>
+            <th>E-mail:<%= @contributor.email %></th>
+          <tr>
+            <th>郵便番号:<%= @contributor.postal_code %></th>
+          </tr>
+          <tr>
+            <th>住所:<%= @contributor.address %></th>
+          </tr>
+          <tr>
+            <th>電話番号:<%= @contributor.telephone_number %></th>
+          </tr>
+          <tr>
+            <th><%= link_to "Edit",edit_post_admin_contributor_path(current_contributor.id), class: "btn btn-outline-secondary mr-3vw" %></th>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>

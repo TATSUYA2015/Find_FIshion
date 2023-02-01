@@ -23,7 +23,7 @@
               <%= f.text_field :word %>
               <%= f.select :range, options_for_select([['brand_name'], ['item']]) %>
               <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-              <%= f.submit "検索", class: "btn btn-primary" %>
+              <%= f.submit "search", class: "btn btn-primary" %>
             <% end %>
           <% else %>
           <% end %>
@@ -73,7 +73,7 @@
                 <%= link_to"Follor", followings_customer_path(current_customer.id), class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
-                <%=link_to"お気に入り一覧", favorites_item_path(current_customer.id), class: "btn btn-light btn-block" %>
+                <%=link_to"favorites", favorites_item_path(current_customer.id), class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
                 <%= link_to"My_page", customer_path(current_customer.id), class: "btn btn-light btn-block" %>

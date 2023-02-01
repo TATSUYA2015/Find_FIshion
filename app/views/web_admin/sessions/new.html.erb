@@ -1,28 +1,24 @@
 <h2 class="text-center">管理者Log in</h2>
-
+</br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="text-center">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
   </div>
-
+  </br>
   <div class="text-center">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password" %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="text-center">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
+  </br>
+  <!--<%# if devise_mapping.rememberable? %>-->
+  <!--  <div class="text-center">-->
+  <!--    <%#= f.check_box :remember_me %>-->
+  <!--    <%#= f.label :remember_me %>-->
+  <!--  </div>-->
+  <!--<%# end %>-->
   <div class="text-center">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-outline-secondary mr-3vw"  %>
   </div>
 <% end %>
-
-<div class="text-center">
-  <%= render "web_admin/shared/links" %>
-</div>
+<!--<div class="text-center">-->
+<!--  <%#= render "web_admin/shared/links" %>-->
+<!--</div>-->
