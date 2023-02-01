@@ -2,7 +2,7 @@
 <div class="item-area1">
   <div class="container">
     <div class="row">
-      <%= image_tag @item.get_profile_image(500,500)%>
+      <%= image_tag @item.image,size:"500x500" %>
       <div class="item-area2">
         <h1 class="text-center"><%= @item.name %></h1>
         <p class="">商品説明：<%= @item.introduction %></p>

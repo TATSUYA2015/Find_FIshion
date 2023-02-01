@@ -1,4 +1,4 @@
-<h2 class="text-center"><%= @contributor.brand_name %>のアカウント情報</h1>
+<h2 class="text-center"><%= @contributor.brand_name %> Accunt</h1>
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-ms-6">
@@ -10,23 +10,23 @@
           <th><%= @contributor.followers.count %>フォロー数</th>
         </tr>
         <tr>
-          <th>氏名:<%= @contributor.last_name %> <%= @contributor.first_name %></th>
+          <th>Name:  <%= @contributor.last_name %> <%= @contributor.first_name %></th>
         </tr>
         <tr>
-          <th>カナ:<%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></th>
+          <th>Kana:  <%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></th>
         </tr>
         <tr>
-          <th>ブランド名:<%= @contributor.brand_name %></th>
+          <th>Brand_Name:  <%= @contributor.brand_name %></th>
         </tr>
-          <th>E-mail:<%= @contributor.email %></th>
+          <th>E-mail:  <%= @contributor.email %></th>
         <tr>
-          <th>郵便番号:<%= @contributor.postal_code %></th>
-        </tr>
-        <tr>
-          <th>住所:<%= @contributor.address %></th>
+          <th>〒  <%= @contributor.postal_code %></th>
         </tr>
         <tr>
-          <th>電話番号:<%= @contributor.telephone_number %></th>
+          <th>Address:  <%= @contributor.address %></th>
+        </tr>
+        <tr>
+          <th>Tel:  <%= @contributor.telephone_number %></th>
         </tr>
         <tr>
           <th>
@@ -45,13 +45,13 @@
   </div>
 </div>
 
-<h2 class="text-center">フォロワー一覧</h2>
+<h2 class="text-center">followers</h2>
 <%#= link_to"Follor", followers_post_admin_contributor_path(@contributor.id) %>
 <%# @follower.customers.each do |customer| %>
   <%#= customer.account %></br>
 <%# end %>
 </br>
-<h2 class="text-center">投稿一覧</h2>
+<h2 class="text-center">Item</h2>
 <div class="container">
     <div class="step-box1-2">
         <% @items.each do |item| %>
