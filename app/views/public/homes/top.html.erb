@@ -1,7 +1,7 @@
 <!--<link rel="stylesheets" href="public/homes.scss"/>-->
 <header id="top_header">
   <nav class="navbar-light">
-    <div class="container d-flex align-items-center ">
+    <div class="top_header container d-flex align-items-center ">
       <div class="top"><a class="navbar-brand p-3" href="/">Faind_Fashion</a></div>
       <% if customer_signed_in? %>
         <%= form_with url: search_path, local: true, method: :get do |f| %>
@@ -82,7 +82,7 @@
 </header>
 
 <div class="background">
-  <h1 class="title">Brand</h1>
+  <h1 class="text-center">Brand</h1>
   <div class="container">
     <div class="row step-box1-1">
       <% @contributors.each do |contributor| %>
