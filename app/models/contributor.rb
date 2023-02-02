@@ -4,6 +4,7 @@ class Contributor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #退会しているかの判断
   def activ_for_authentication?
     super && (self.is_deleted == false)
   end

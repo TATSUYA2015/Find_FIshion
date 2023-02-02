@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostAdmin::SessionsController < Devise::SessionsController
+  before_action :contributor_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

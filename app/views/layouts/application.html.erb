@@ -38,23 +38,23 @@
           <ul class="navbar-nav">
             <% if web_admin_signed_in? %>
               <li class="nav-item">
-                <%= link_to"トップページ", web_admin_homes_top_path, class: "btn btn-light btn-block" %>
+                <%= link_to"Top_Page", web_admin_homes_top_path, class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
-                <%= link_to"投稿者一覧", web_admin_contributors_path, class: "btn btn-light btn-block" %>
+                <%= link_to"Contributors", web_admin_contributors_path, class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
-                <%= link_to"利用者一覧", web_admin_customers_path, class: "btn btn-light btn-block" %>
+                <%= link_to"Customers", web_admin_customers_path, class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
-                <%= link_to"Genre一覧", web_admin_genres_path, class: "btn btn-light btn-block" %>
+                <%= link_to"Genres", web_admin_genres_path, class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
                 <%= link_to"Log_out",destroy_web_admin_session_path, class: "btn btn-light btn-block" , method: :delete %>
               </li>
             <% elsif contributor_signed_in? %>
               <li class="nav-item">
-                <%= link_to"投稿一覧", post_admin_items_path, class: "btn btn-light btn-block" %>
+                <%= link_to"Item", post_admin_items_path, class: "btn btn-light btn-block" %>
               </li>
               <li class="nav-item">
                 <%= link_to"Follor", followers_post_admin_contributor_path(current_contributor.id), class: "btn btn-light btn-block" %>

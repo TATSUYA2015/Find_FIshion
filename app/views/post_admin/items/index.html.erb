@@ -1,31 +1,30 @@
 <div class="brand-area1">
-    <div class="container">
-        <div class="row justify-content-around">
-            <%= image_tag current_contributor.get_profile_image(500,500) %>
-            <div class="brand-area2">
-            <h1 class="text-center"><%= current_contributor.brand_name %></h1>
-            <p class="brand-explanation">ブランド説明</p>
-            <div><%= link_to "+", new_post_admin_item_path, class: "text-decoration-none btn-secondary rounded-circle btn-lg" %></div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+      <div class="row justify-content-around">
+          <%= image_tag current_contributor.get_profile_image(500,500) %>
+          <div class="brand-area2">
+          <h1 class="text-center"><%= current_contributor.brand_name %></h1>
+          <p class="brand-explanation">ブランド説明</p>
+          <div><%= link_to "+", new_post_admin_item_path, class: "text-decoration-none btn-secondary rounded-circle btn-lg" %></div>
+          </div>
+      </div>
+  </div>
 </div>
-
+<h2 class="text-center">Item</h2>
 <div class="container">
-  <h2 class="text-center">Item</h2>
-  <div class="row justify-content-between">
+  <div class="step-box1-2">
     <% @items.each do |item| %>
-      <div class="shadow">
+      <!--<div class="shadow">-->
         <% if item.contributor == current_contributor %>
           <%= link_to post_admin_item_path(item.id), class: "text-decoration-none text-dark" do %>
             <%= image_tag item.image,size:"300x300" %></br>
-            <div class="text-center ">
+            <!--<div class="text-center ">-->
+            <div class="card  shadow-lg">
             <%= item.name %></br>
             <%= item.introduction %></br>
             </div>
           <% end %>
         <% end %>
-      </div>
     <% end %>
   </div>
 </div>

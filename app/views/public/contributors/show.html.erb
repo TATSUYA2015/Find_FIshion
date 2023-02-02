@@ -1,20 +1,20 @@
 <link rel="stylesheets" href="public/contribuctor.scss"/>
-
 <div class="brand-area1">
     <div class="container">
         <div class="row justify-content-around">
-
             <%= image_tag @contributor.get_profile_image(500,500) %>
             <div class="brand-area2">
             <h1 class="text-center"><%= @contributor.brand_name %></h1>
             <p class="brand-explanation">ブランド説明</p>
-            <% if current_customer.following?(@contributor) %>
-                <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :delete do %>
-                <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー解除<bottom>
-                <% end %>
-            <% else %>
-                <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :post do %>
-                <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー</bottom>
+            <% if customer_signed_in? %>
+                <% if current_customer.following?(@contributor) %>
+                    <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :delete do %>
+                    <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー解除<bottom>
+                    <% end %>
+                <% else %>
+                    <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :post do %>
+                    <button type="button" class="btn btn-outline-secondary mr-3vw">フォロー</bottom>
+                    <% end %>
                 <% end %>
             <% end %>
             </div>

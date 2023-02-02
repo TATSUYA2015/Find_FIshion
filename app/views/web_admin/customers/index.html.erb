@@ -1,10 +1,12 @@
-<h2 class="text-center">利用者アカウント一覧</h2>
+<h2 class="text-center">Customer_Accunt</h2>
+</br>
 <div class="container">
   <div class="step-box1-1">
     <% @customers.each do |customer| %>
       <div class="card  shadow">
-        <%= link_to web_admin_customer_path(customer.id) do %> <!--各ブランド情報ページのリンク -->
-          <div class="step-image1-1"><%= image_tag customer.get_profile_image(100,100) %></br></div></br>
+        <%= link_to web_admin_customer_path(customer.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
+          <div class="step-image1-1"><%= image_tag customer.get_profile_image(100,100) %></div></br>
+          <div class="step-name1-1"><%= customer.email %></div></br>
         <% end %>
         <div>
           <% if customer.is_deleted %>
@@ -13,7 +15,6 @@
             有効
           <% end %>
         </div>
-        <div class="step-name1-1"><%= customer.email %></div></br>
       </div>
     <% end %>
   </div>
