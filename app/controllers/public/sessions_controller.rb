@@ -34,6 +34,14 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_customer_registration_path
     end
   end
+  
+  def customer_state
+    @customer = Customer.find_by(uid: params[:customer][:uid])
+    return if !@customer
+    if @customer.valid_provider?(params[:customer][:provider]) && @customer.is_deleted
+      redirect_to new_customer_registration_path
+    end
+  end
 
 
 end

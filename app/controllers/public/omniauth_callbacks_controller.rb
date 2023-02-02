@@ -16,19 +16,27 @@ class Public::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :google
   end
 
+
   def callback_from(provider)
   provider = provider.to_s
-
   @customer = Customer.find_for_oauth(request.env['omniauth.auth'])
-
   # persisted?でDBに保存済みかどうか判断
     if @customer.persisted?
+      if @customer.is_deleted
+        redirect_to new_customer_session_path
+        #DoubleRenderErrorにならないようにreturnで返す
+        #下があることによってさらにしたの記述（sign_in_and_redirect @customer
+        #※@ @customer = Customer.find_for_oauth(request.env['omniauth.auth']のこと)を読まないようにする
+        return
+      end
       # サインアップ時に行いたい処理があればここに書きます。
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
       sign_in_and_redirect @customer, event: :authentication
     else
+      #
       session["devise.#{provider}_data"] = request.env['omniauth.auth']
       redirect_to new_customer_session_path
+      return
     end
   end
 
