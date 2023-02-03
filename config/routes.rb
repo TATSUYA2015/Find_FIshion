@@ -6,8 +6,17 @@ Rails.application.routes.draw do
   namespace :web_admin do
     get 'homes/top'
     resources :genres
-    resources :contributors
-    resources :customers
+    resources :contributors do
+      resource :relationships, only: [:create, :destroy]
+      #フォローしてくれている人全員を表示してくれる
+      get :followers, on: :member
+    end
+    resources :customers do
+      resource :relationships
+      #ある利用者がフォローしている人全員を表示してくれる
+      get :followings, on: :member
+    end
+
     resources :items
   end
 

@@ -41,7 +41,7 @@
           </th>
         </tr>
         <tr>
-          <th><%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id),class: "btn btn-outline-secondary mr-3vw" %></th>
+          <th><%= link_to "Edit",edit_web_admin_contributor_path(@contributor.id),class: "btn btn-outline-secondary mr-3vw" %> / <%= link_to "Followers",followers_web_admin_contributor_path(@contributor.id),class: "btn btn-outline-secondary mr-3vw" %></th>
         </tr>
       </table>
     </div>

@@ -17,6 +17,11 @@ class WebAdmin::CustomersController < ApplicationController
     redirect_to web_admin_customer_path
   end
 
+  def followings
+    customer=Customer.find(params[:id])
+    @contributors=customer.followings
+  end
+
   private
 
   def customer_params

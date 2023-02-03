@@ -13,15 +13,4 @@ class Public::RelationshipsController < ApplicationController
     redirect_to request.referrer || root_path
   end
 
-  #def followings
-    #customer = customer.find(params[:customer_id])
-    #@customers = customer.followings
-  #end
-
-  #def create
-  #@post_favorite = Favorite.new(user_id: current_user.id, post_id: params[:post_id])
-  #@post_favorite.save
-  #redirect_to post_path(params[:post_id])
-  #end
-
 end

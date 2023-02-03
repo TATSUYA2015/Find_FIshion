@@ -1,0 +1,15 @@
+<div class="background">
+  <h2 class="text-center">Followings</h2>
+  <div class="following-area">
+    <div class="followings">
+      <% @contributors.each do |contributor| %>
+       <div class="card shadow">
+          <%= link_to web_admin_contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
+            <%= image_tag contributor.get_profile_image(162,211) %></br>
+            <%= contributor.brand_name %></br>
+          <% end %>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>

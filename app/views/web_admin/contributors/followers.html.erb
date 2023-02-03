@@ -1,0 +1,12 @@
+<h2 class="text-center">Followers</h2>
+<div class="following-area">
+  <div class="followings">
+  <% @customers.each do |customer| %>
+    <div class="card shadow">
+      <%= link_to web_admin_customer_path(customer.id), class: "text-secondary" do %>
+        <%= image_tag customer.get_profile_image(162,211) %></br>
+        <%= customer.account %></br>
+      <% end %>
+    </div>
+  <% end %>
+</div>
