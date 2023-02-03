@@ -5,7 +5,7 @@ class Public::ItemsController < ApplicationController
     @comment=Comment.new
   end
 
-#いいね一覧
+  #いいね一覧
   def favorites
     #いいね　where→ログインしてるcustomer pluck→itemを配列から検索
     favorites= Favorite.where(customer_id: current_customer.id).pluck(:item_id)
@@ -18,7 +18,6 @@ class Public::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:contributor_id, :genre_id, :name, :image, :introduction)
   end
-
 
   def comment_params
     params.require(:comment).permit(:item_id, :customer_id, :introduction)
