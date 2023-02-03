@@ -50,6 +50,7 @@ class Contributor < ApplicationRecord
   validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :address,              presence: true, length: { minimum: 1}
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
+  validates :introduction,         presence: true, length: { maximum: 100 }, on: :update
 
 
 end

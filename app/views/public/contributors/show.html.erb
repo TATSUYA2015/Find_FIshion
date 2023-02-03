@@ -5,7 +5,10 @@
             <%= image_tag @contributor.get_profile_image(500,500) %>
             <div class="brand-area2">
             <h1 class="text-center"><%= @contributor.brand_name %></h1>
-            <p class="brand-explanation">ブランド説明</p>
+            <p class="brand-explanation">
+                〜〜ブランド説明〜〜</br>
+                <%= @contributor.introduction %>
+            </p>
             <% if customer_signed_in? %>
                 <% if current_customer.following?(@contributor) %>
                     <%= link_to contributor_relationships_path(@contributor), class: "text-secondary", method: :delete do %>

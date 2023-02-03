@@ -19,7 +19,7 @@
             <th>Brand_Image:  <%= f.file_field :profile_image, accept: "image/*" %></th>
           </tr>
           <tr>
-            <th>E-mail:<%= f.text_field :email %></th>
+            <th>E-mail:   <%= f.text_field :email %></th>
           </tr>
           <tr>
             <th>〒  <%= f.text_field :postal_code %></th>
@@ -29,6 +29,9 @@
           </tr>
           <tr>
             <th>Tel:  <%= f.text_field :telephone_number %></th>
+          </tr>
+          <tr>
+            <th><%= f.text_area :introduction, placeholder: "ブランド説明" %></th>
           </tr>
           <tr>
             <th>

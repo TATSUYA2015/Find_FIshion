@@ -9,27 +9,30 @@
         <%= form_with model: @contributor, url: post_admin_contributor_path, method: :patch do |f| %>
           <table>
             <tr>
-              <th>氏名:<%= f.text_field :last_name %> <%= f.text_field  :first_name %></th>
+              <th>Name:  <%= f.text_field :last_name %> <%= f.text_field  :first_name %></th>
             </tr>
             <tr>
-              <th>カナ:<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></th>
+              <th>Kana:   <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></th>
             <tr>
-              <th>ブランド名:<%= f.text_field :brand_name %></th>
+              <th>Brand_Name:   <%= f.text_field :brand_name %></th>
             </tr>
             <tr>
-              <th>ブランド画像:<%= f.file_field :profile_image, accept: "image/*" %></th>
+              <th>Brand_Image:   <%= f.file_field :profile_image, accept: "image/*" %></th>
             </tr>
             <tr>
-              <th>E-mail:<%= f.text_field :email %></th>
+              <th>E-mail:   <%= f.text_field :email %></th>
             </tr>
             <tr>
-              <th>郵便番号:<%= f.text_field :postal_code %></th>
+              <th>〒    <%= f.text_field :postal_code %></th>
             <tr>
             <tr>
-              <th>住所:<%= f.text_field :address %></th>
+              <th>Address:  <%= f.text_field :address %></th>
             </tr>
             <tr>
-              <th>電話番号:<%= f.text_field :telephone_number %></th>
+              <th>Tel:    <%= f.text_field :telephone_number %></th>
+            </tr>
+            <tr>
+              <th><%= f.text_area :introduction, placeholder: "ブランド説明" %></th>
             </tr>
             <tr>
               <th><%= f.submit"Keep", class: "btn btn-outline-secondary mr-3vw" %><%= link_to "Withdrawal",post_admin_unsubscribe_path, class: "btn btn-outline-secondary mr-3vw" %></th>
