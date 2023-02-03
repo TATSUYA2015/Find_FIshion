@@ -2,11 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// .favorite-area{
+//   justify-content: center;
+//   height: 550px;
+//   margin: 0 auto;
+//   flex-wrap: wrap;
+//   background-color: rgba( 0, 0, 0, 0.5);
+// }
+
+// .favorites{
+//   display: flex;
+// 	text-align: center;
+// 	justify-content: space-between;
+// 	flex-wrap: wrap;
+// 	margin: 0 400px;
+// }
+
+// .item-box1{
+//   padding: 30px 0;
+// }
+
 .favorite-area{
   justify-content: center;
   height: 550px;
   margin: 0 auto;
-  flex-wrap: wrap;
   background-color: rgba( 0, 0, 0, 0.5);
 }
 

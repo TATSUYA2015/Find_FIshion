@@ -6,23 +6,10 @@
     <% @favorite_items.each do |item|%>
       <div class="item-box1">
         <%= link_to item_path(item) do %>
-          <%= image_tag item.image ,size:'162x211' %>
+          <%= image_tag item.image ,size:'200x200' %>
         <% end %>
       </div>
     <% end %>
     </div>
   </div>
 </div>
-
-<!--<h2 class="text-center">favorites</h2>-->
-<!--<div class="container">-->
-<!--  <div class="step-box1-2">-->
-<!--    <% @favorite_items.each do |item|%>-->
-<!--      <div class="item-box1">-->
-<!--        <%= link_to item_path(item) do %>-->
-<!--          <%= image_tag item.image ,size:'300x300' %>-->
-<!--        <% end %>-->
-<!--      </div>-->
-<!--    <% end %>-->
-<!--  </div>-->
-<!--</div>-->

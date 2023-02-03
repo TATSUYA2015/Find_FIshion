@@ -19,11 +19,6 @@ class WebAdmin::ContributorsController < ApplicationController
     redirect_to web_admin_contributor_path
   end
 
-  def followers
-    contributor=Contributor.find(params[:id])
-    @customers=contributor.followers
-  end
-
   private
 
   def contributor_paramas

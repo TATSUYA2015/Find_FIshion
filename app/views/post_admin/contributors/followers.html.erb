@@ -2,9 +2,9 @@
 <div class="following-area">
   <div class="followings">
   <% @customers.each do |customer| %>
-   <div class="card shadow">
-        <%= image_tag customer.get_profile_image(162,211) %></br>
-        <%= customer.account %></br>
-   </div>
+    <div class="card shadow">
+      <%= image_tag customer.get_profile_image(162,211) %></br>
+      <%= customer.account %></br>
+    </div>
   <% end %>
 </div>

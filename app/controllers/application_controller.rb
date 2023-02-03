@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when WebAdmin
-      web_admin_homes_top_path
+      web_admin_contributors_path
     when Contributor
       post_admin_items_path
     when Customer
