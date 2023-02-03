@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   sessions: "web_admin/sessions"
   }
   namespace :web_admin do
-    get 'homes/top'
-    resources :genres
     resources :contributors do
       resource :relationships, only: [:create, :destroy]
       #フォローしてくれている人全員を表示してくれる
@@ -16,8 +14,8 @@ Rails.application.routes.draw do
       #ある利用者がフォローしている人全員を表示してくれる
       get :followings, on: :member
     end
-
     resources :items
+    resources :genres
   end
 
 
