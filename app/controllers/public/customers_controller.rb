@@ -15,7 +15,6 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path
   end
 
-
   def unsubscribe
   end
 
@@ -35,7 +34,7 @@ class Public::CustomersController < ApplicationController
   def favorites
     @items=Item.all
     @customer = Customer.find(params[:id])
-    favorites= Favorite.where(customer_id: @customer.id).pluck(:item_id)
+    favorites= Favorite.with_active_contributor.where(customer_id: @customer.id).pluck(:item_id)
     @favorite_items = Item.find(favorites)
   end
 

@@ -4,6 +4,10 @@ class Contributor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #↓ contributreの会員が有効な人だけ取得している
+  scope :active, -> { where(is_deleted: false) }
+  # scope :deleted, -> { where(is_deleted: true) }
+
   #退会しているかの判断
   def activ_for_authentication?
     super && (self.is_deleted == false)

@@ -1,7 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
-    # @contributors=Contributor.where()
-    @contributors=Contributor.page(params[:page])
+    @contributors=Contributor.active.page(params[:page])
   end
 
   def about

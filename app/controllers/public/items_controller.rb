@@ -8,7 +8,7 @@ class Public::ItemsController < ApplicationController
   #いいね一覧
   def favorites
     #いいね　where→ログインしてるcustomer pluck→itemを配列から検索
-    favorites= Favorite.where(customer_id: current_customer.id).pluck(:item_id)
+    favorites=Favorite.with_active_contributor.where(customer_id: current_customer.id).pluck(:item_id)
     @favorite_items = Item.find(favorites)
   end
 

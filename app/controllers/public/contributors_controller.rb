@@ -4,11 +4,6 @@ class Public::ContributorsController < ApplicationController
     @items=Item.page(params[:page])
   end
 
-  #def followings
-    #customer=Customer.find(params[:id])
-    #@contributors=customer.followings
-  #end
-
   def followers
     contributor = Contributor.find(params[:id])
     @customer = contributor.followers
