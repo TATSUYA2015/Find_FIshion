@@ -1,5 +1,6 @@
 class Public::HomesController < ApplicationController
   def top
+    # @contributors=Contributor.where()
     @contributors=Contributor.page(params[:page])
   end
 

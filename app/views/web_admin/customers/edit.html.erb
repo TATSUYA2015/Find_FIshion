@@ -7,15 +7,9 @@
     <div class="col-md-6 col-ms-6">
       <%= form_with model: @customer, url: web_admin_customer_path, method: :patch do |f| %>
         <table>
-          <!--<tr>-->
-          <!--  <th>氏名:<%#= f.text_field :last_name %> <%#= f.text_field :first_name %></th>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--  <th>カナ:<%#= f.text_field :last_name_kana %> <%#= f.text_field :first_name_kana %></th>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--  <th>名前:<%#= f.text_field :name %></th>-->
-          <!--</tr>-->
+          <tr>
+            <th>名前:   <%= f.text_field :name %></th>
+          </tr>
           <tr>
             <th>Accunt_Name:  <%= f.text_field :account %></th>
           </tr>
