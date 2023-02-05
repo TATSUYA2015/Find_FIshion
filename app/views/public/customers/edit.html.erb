@@ -7,26 +7,32 @@
       </div>
       <div class="col-md-6 col-ms-6">
         <%= form_with model: @customer, url: customer_path do |f| %>
-          <table>
-            <tr>
-              <th>氏名:<%= f.text_field :name %></th>
-            </tr>
-            <tr>
-              <th>Accunt_Name:  <%= f.text_field :account %></th>
-            </tr>
-            <tr>
-              <th>Accunt_Image:  <%= f.file_field :profile_image, accept: "image/*" %></th>
-            </tr>
-            <tr>
-              <th>E-mail:  <%= f.text_field :email %></th>
-            </tr>
-            <tr>
-              <th>Tel:  <%= f.text_field :telephone_number %></th>
-            </tr>
-            <tr>
-              <th><%= f.submit "Keep", class: "btn btn-outline-secondary mr-3vw" %> / <%= link_to "Withdrawal", unsubscribe_path, class: "btn btn-outline-secondary mr-3vw" %></th>
-            </tr>
-          </table>
+          <ul>
+            <li>
+              <label>Name:</label>
+               <%= f.text_field :name %>
+            </li>
+            <li>
+              <label>Accunt_Name:</label>
+              <%= f.text_field :account %>
+            </li>
+            <li>
+              <label>Accunt_Image:</label>
+              <%= f.file_field :profile_image, accept: "image/*" %>
+            </li>
+            <li>
+              <label>Email:</label>
+              <%= f.text_field :email %>
+            </li>
+            <li>
+              <label>Tel:</label>
+              <%= f.text_field :telephone_number %>
+            </li>
+            <li>
+               <label><%= f.submit"Keep",class: "btn btn-outline-secondary mr-3vw"%></label>
+                <%= link_to "Withdrawal", unsubscribe_path, class: "btn btn-outline-secondary mr-3vw" %>
+            </li>
+          </ul>
         <% end %>
       </div>
     </div>

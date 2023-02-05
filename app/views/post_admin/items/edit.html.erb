@@ -4,27 +4,32 @@
 <div class="container">
   <div class="row item-area3">
     <div class="col-md-6 col-ms-6">
-      <%= image_tag @item.image,size:"500x500" %>
+      <%= image_tag @item.image, width: '100%', height: '100%' %>
     </div>
     <div class="col-md-6 col-ms-6">
       <%= form_with model: @item, url:post_admin_item_path, method: :patch do |f| %>
-        <table>
-        <tr>
-          <th>商品名:<%= f.text_field  :name %></th>
-        <tr>
-        <tr>
-          <th>商品画像:<%= f.file_field :image, accept: "image/*"%></th>
-        </tr>
-        <tr>
-          <th>ジャンル:<%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></th>
-        </tr>
-        <tr>
-          <th>商品説明:<%= f.text_area :introduction %></th>
-        </tr>
-        <tr>
-          <th><%= f.submit "Keep", class: "btn btn-outline-secondary mr-3vw" %>/<%= link_to "Delete", post_admin_item_path(@item), class: "btn btn-outline-secondary mr-3vw" , method: :delete, "data-confirm" => "本当に削除しますか？"  %></th>
-        </tr>
-        </table>
+      <ul>
+        <li>
+          <label>商品名:</label>
+          <%= f.text_field  :name %>
+        </li>
+        <li>
+          <label>商品画像:</label>
+          <%= f.file_field :image, accept: "image/*" %>
+        </li>
+        <li>
+          <label>ジャンル:</label>
+          <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
+        </li>
+        <li>
+          <label></label>
+          <%= f.text_area :introduction, placeholder: "商品説明" %>
+        </li>
+        <li>
+           <label><%= f.submit"Keep",class: "btn btn-outline-secondary mr-3vw"%></label>
+           <%= link_to "Delete", web_admin_item_path(@item),class: "btn btn-outline-secondary mr-3vw" , method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+        </li>
+      </ul>
       <% end %>
     </div>
   </div>

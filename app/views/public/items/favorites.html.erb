@@ -1,15 +1,14 @@
 <link rel="stylesheets" href="public/favorites.scss"/>
-<div class="background">
-  <h2 class="text-center">favorites</h2>
-  <div class="favorite-area">
-    <div class="favorites">
+<h2 class="text-center">favorites</h2>
+<div class="container following-area">
+</br>
+  <div class="row d-flex justify-content-around">
     <% @favorite_items.each do |item|%>
-      <div class="item-box1">
+      <div class="card shadow">
         <%= link_to item_path(item) do %>
           <%= image_tag item.image ,size:'200x200' %>
         <% end %>
       </div>
     <% end %>
-    </div>
   </div>
 </div>

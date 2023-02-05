@@ -16,8 +16,17 @@
     <% unless current_page?(root_path) %>
     <header>
       <nav class="navbar-light">
-        <div class="top-header container d-flex align-items-center ">
-          <div class="text-center"><a class="navbar-brand p-3" href="/">Faind_Fashion</a></div>
+        <div class=" container d-flex align-items-center ">
+          <div class="top"><a class="navbar-brand p-3" href="/">Faind_Fashion</a></div>
+          <div class="ml-auto">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar-light">
+        <div class="container d-flex align-items-center ">
           <% if customer_signed_in? %>
             <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.text_field :word %>
@@ -27,11 +36,6 @@
             <% end %>
           <% else %>
           <% end %>
-          <div class="ml-auto">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
         </div>
       </nav>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">

@@ -22,14 +22,18 @@
           <label>Email:</label>
           <%= @customer.email %>
         </li>
+         <li>
+          <label>Tel:</label>
+            <%= @customer.telephone_number %>
+          </li>
         <li>
           <label>
           <% if @customer.is_deleted %>
               退会済み
             <% else %>
               有効
-            <% end %></label>
-          <%= @customer.telephone_number %>
+            <% end %>
+          </label>
         </li>
         <li>
            <label><%= link_to"Edit",edit_web_admin_customer_path,class: "btn btn-outline-secondary mr-3vw" %></label>

@@ -1,16 +1,33 @@
 <link rel="stylesheets" href="post_admin/items.scss"/>
 <h2 class="text-center">New_Item</h2>
 <div class="container">
-  <div class="row justify-content-around">
-        <%= form_with model: @item, url:post_admin_items_path, method: :post do |f| %>
-          <table>
-            <tr><th>商品名:<%= f.text_field :name %></tr></th>
-            <tr><th>商品画像：<%= f.file_field :image, accept: "image/*" %></th></tr>
-            <tr><th>ジャンル:<%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></th></tr>
-            <tr><th>商品説明:<%= f.text_area :introduction %></th></tr>
-            <tr><th><%= f.submit "keep", class: "btn btn-outline-secondary mr-3vw" %></th></tr>
-          </table>
-        <% end %>
-      </div>
+  <div class="row d-flex justify-content-center">
+    <%= form_with model: @item, url:post_admin_items_path, method: :post do |f| %>
+      <ul>
+        <li>
+          <label>Item_Name:</label>
+           <%= f.text_field :name %>
+        </li>
+        <li>
+          <label>Item_Image：</label>
+          <%= f.file_field :image, accept: "image/*" %>
+        </li>
+        <li>
+          <label>Accunt_Image:</label>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </li>
+        <li>
+          <label>Genre:</label>
+          <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
+        </li>
+        <li>
+          <label></label>
+          <%= f.text_area :introduction, placeholder: "商品説明" %>
+        </li>
+        <li>
+           <label><%= f.submit"Keep",class: "btn btn-outline-secondary mr-3vw"%></label>
+        </li>
+      </ul>
+    <% end %>
   </div>
 </div>

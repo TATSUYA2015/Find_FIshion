@@ -6,36 +6,43 @@
         <%= image_tag @contributor.get_profile_image(300,300) %>
       </div>
       <div class="col-md-6 col-ms-6">
-        <table>
-          <tr>
-            <th><%= @contributor.followers.count %>フォロー数</th>
-          </tr>
-          <tr>
-            <th>Name:   <%= @contributor.last_name %> <%= @contributor.first_name %></th>
-          </tr>
-          <tr>
-            <th>Kana:   <%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %></th>
-          </tr>
-          <tr>
-            <th>Brand_Name:   <%= @contributor.brand_name %></th>
-          </tr>
-            <th>E-mail:  <%= @contributor.email %></th>
-          <tr>
-            <th>〒   <%= @contributor.postal_code %></th>
-          </tr>
-          <tr>
-            <th>Address:   <%= @contributor.address %></th>
-          </tr>
-          <tr>
-            <th>Tel:   <%= @contributor.telephone_number %></th>
-          </tr>
-          <tr>
-            <th>ブランド説明<%= @contributor.introduction %></th>
-          </tr>
-          <tr>
-            <th><%= link_to "Edit",edit_post_admin_contributor_path(current_contributor.id), class: "btn btn-outline-secondary mr-3vw" %></th>
-          </tr>
-        </table>
+        <ul>
+          <li>
+            <label>Name:</label>
+            <%= @contributor.last_name %> <%= @contributor.first_name %>
+          </li>
+          <li>
+            <label>Kana:</label>
+            <%= @contributor.last_name_kana %> <%= @contributor.first_name_kana %>
+          </li>
+          <li>
+            <label>Brand_Name:</label>
+            <%= @contributor.brand_name %>
+          </li>
+          <li>
+            <label>E-mail:</label>
+            <%= @contributor.email %>
+          </li>
+          <li>
+            <label>〒</label>
+            <%= @contributor.postal_code %>
+          </li>
+          <li>
+             <label>Address:</label>
+             <%= @contributor.address %>
+          </li>
+          <li>
+            <label>Tel:</label>
+            <%= @contributor.telephone_number %>
+          </li>
+          <li>
+             <label></label>
+             <%= @contributor.introduction %>
+          </li>
+          <li>
+             <label><%= link_to "Edit",edit_post_admin_contributor_path(current_contributor.id), class: "btn btn-outline-secondary mr-3vw" %></label>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

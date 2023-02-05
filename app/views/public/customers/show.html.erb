@@ -7,25 +7,30 @@
         <%= image_tag @customer.get_profile_image(300,300) %>
       </div>
       <div class="col-md-6 col-ms-6">
-        <table>
-          <tr>
-            <th>
-              名前:<%= @customer.name %>
-            </th>
-          </tr>
-          <tr>
-            <th>Accunt_Name:  <%= @customer.account %></th>
-          </tr>
-          <tr>
-            <th>E-mail:  <%= @customer.email %></th>
-          </tr>
-          <tr>
-            <th>Tel:  <%= @customer.telephone_number %></th>
-          </tr>
-          <tr>
-            <th><%= link_to "Edit", edit_customer_path, class: "btn btn-outline-secondary mr-3vw" %></th>
-          </tr>
-        </table>
+        <ul>
+          <li>
+            <label><th><%= @customer.followings.count %>フォロー数</label>
+          </li>
+          <li>
+            <label>Name:</label>
+             <%= @customer.name %>
+          </li>
+          <li>
+            <label>Accunt_Name:</label>
+            <%= @customer.account %>
+          </li>
+          <li>
+            <label>Email:</label>
+            <%= @customer.email %>
+          </li>
+          <li>
+            <label>Tel:</label>
+            <%= @customer.telephone_number %>
+          </li>
+          <li>
+             <label><%= link_to"Edit", edit_customer_path,class: "btn btn-outline-secondary mr-3vw" %></label>
+          </li>
+        </ul>
       </div>
     </div>
 </div>

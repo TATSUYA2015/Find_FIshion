@@ -1,15 +1,16 @@
-<div class="background">
-  <h2 class="text-center">Followings</h2>
-  </br>
-  <div class="following-area">
-  </br>
-    <div class="followings card shadow">
-      <% @contributors.each do |contributor| %>
-          <%= link_to web_admin_contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
-            <%= image_tag contributor.get_profile_image(162,211) %></br>
-            <%= contributor.brand_name %></br>
-          <% end %>
-      <% end %>
-    </div>
+<h2 class="text-center">Followings</h2>
+</br>
+<div class="container following-area">
+</br>
+  <div class="row d-flex justify-content-around">
+    <% @contributors.each do |contributor| %>
+      <div class="card shadow">
+        <%= link_to web_admin_contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
+          <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
+          <div class="text-center"><%= contributor.brand_name %></div></br>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
+
