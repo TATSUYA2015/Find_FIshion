@@ -1,7 +1,7 @@
 <link rel="stylesheets" href="public/favorites.scss"/>
 <h2 class="text-center">検索一覧</h2>
-<div class="following-area">
-  <div class="followings">
+<div class="container following-area">
+  <div class="row d-flex justify-content-around">
     <table>
       <!--検索対象モデルがcontributorの時 -->
       <% if @range == "brand_name" %>
@@ -28,7 +28,7 @@
                 <div class="card shadow">
                   <%= link_to item_path(item.id), class: "text-secondary" do %>
                     <%= image_tag item.image ,size:'162x211' %></br>
-                    <%= item.name %>
+                    <div class="text-center"><%= item.name %></br>
                   <% end %>
                 </div>
               </td>
