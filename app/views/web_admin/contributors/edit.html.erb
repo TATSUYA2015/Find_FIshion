@@ -2,50 +2,58 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-ms-6">
-      <%= image_tag @contributor.get_profile_image(300,300) %>
+      <%= image_tag @contributor.get_profile_image(400,400) %>
     </div>
     <div class="col-md-6 col-ms-6">
       <%= form_with model: @contributor, url: web_admin_contributor_path, method: :patch do |f| %>
-        <table>
-          <tr>
-            <th>Name:  <%= f.text_field :last_name %> <%= f.text_field  :first_name %></th>
-          </tr>
-          <tr>
-            <th>Kana:  <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></th>
-          <tr>
-            <th>Brand_Name:  <%= f.text_field :brand_name %></th>
-          </tr>
-          <tr>
-            <th>Brand_Image:  <%= f.file_field :profile_image, accept: "image/*" %></th>
-          </tr>
-          <tr>
-            <th>E-mail:   <%= f.text_field :email %></th>
-          </tr>
-          <tr>
-            <th>〒  <%= f.text_field :postal_code %></th>
-          <tr>
-          <tr>
-            <th>Address:  <%= f.text_field :address %></th>
-          </tr>
-          <tr>
-            <th>Tel:  <%= f.text_field :telephone_number %></th>
-          </tr>
-          <tr>
-            <th><%= f.text_area :introduction, placeholder: "ブランド説明" %></th>
-          </tr>
-          <tr>
-            <th>
-              退会ステータス</br>
-              <%= f.radio_button :is_deleted, false %>
-              <%= f.label :is_deleted, "有効" %>
-              <%= f.radio_button :is_deleted, true %>
-              <%= f.label :is_deleted, "退会" %>
-            </th>
-          </tr>
-          <tr>
-            <th><%= f.submit"Keep",class: "btn btn-outline-secondary mr-3vw"%></th>
-          </tr>
-        </table>
+      <ul>
+        <li>
+          <label>Name:</label>
+          <%= f.text_field :last_name %> <%= f.text_field  :first_name %>
+        </li>
+        <li>
+          <label>Kana:</label>
+          <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %>
+        </li>
+        <li>
+          <label>Brand_Name:</label>
+          <%= f.text_field :brand_name %>
+        </li>
+        <li>
+          <label>Brand_Image:</label>
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </li>
+        <li>
+          <label>E-mail:</label>
+          <%= f.text_field :email %>
+        </li>
+        <li>
+          <label>〒</label>
+          <%= f.text_field :postal_code %>
+        </li>
+        <li>
+           <label>Address:</label>
+           <%= f.text_field :address %>
+        </li>
+        <li>
+          <label>Tel:</label>
+          <%= f.text_field :telephone_number %>
+        </li>
+        <li>
+           <label></label>
+           <%= f.text_area :introduction, placeholder: "ブランド説明" %>
+        </li>
+        <li>
+           <label>退会ステータス</label>
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :is_deleted, "有効" %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :is_deleted, "退会" %>
+        </li>
+        <li>
+           <label><%= f.submit"Keep",class: "btn btn-outline-secondary mr-3vw"%></label>
+        </li>
+      </ul>
       <% end %>
     </div>
   </div>

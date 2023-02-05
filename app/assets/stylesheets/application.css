@@ -46,8 +46,25 @@
     flex: 1;
   }
 
+  h1{
+    font-family: 'Athelas';
+  }
+
+  h2{
+    padding-top: 20px;
+    font-family: 'Athelas';
+  }
+
   .sosyal {
     margin: 10px auto;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  label {
+    margin-right: 10px;
   }
 
   .twitter {
@@ -96,14 +113,6 @@
     background-color: #D04829;
   }
 
-  h1{
-    font-family: 'Athelas';
-  }
-
-  h2{
-    padding-top: 20px;
-    font-family: 'Athelas';
-  }
 
   footer{
     margin-top: 50px;

@@ -6,36 +6,36 @@
       <%= image_tag @customer.get_profile_image(300,300) %>
     </div>
     <div class="col-md-6 col-ms-6">
-      <table>
-        <tr>
-          <th><%= @customer.followings.count %>フォロー数</th>
-        </tr>
-        <tr>
-          <th>Name:   <%= @customer.name %></th>
-        </tr>
-        <tr>
-          <th>Accunt_Name:  <%= @customer.account %></th>
-        </tr>
-          <th>E-mail:  <%= @customer.email %></th>
-        <tr>
-          <th>Tel:  <%= @customer.telephone_number %></th>
-        </tr>
-        <tr>
-          <th>
-            <% if @customer.is_deleted %>
+      <ul>
+        <li>
+          <label><th><%= @customer.followings.count %>フォロー数</label>
+        </li>
+        <li>
+          <label>Name:</label>
+           <%= @customer.name %>
+        </li>
+        <li>
+          <label>Accunt_Name:</label>
+          <%= @customer.account %>
+        </li>
+        <li>
+          <label>Email:</label>
+          <%= @customer.email %>
+        </li>
+        <li>
+          <label>
+          <% if @customer.is_deleted %>
               退会済み
             <% else %>
               有効
-            <% end %>
-          </th>
-        </tr>
-        <tr>
-          <th><%= link_to"Edit",edit_web_admin_customer_path,class: "btn btn-outline-secondary mr-3vw" %></th>
-        </tr>
-         <tr>
-          <th><%= link_to"Followings",followings_web_admin_customer_path(@customer.id),class: "btn btn-outline-secondary mr-3vw" %></th>
-        </tr>
-      </table>
+            <% end %></label>
+          <%= @customer.telephone_number %>
+        </li>
+        <li>
+           <label><%= link_to"Edit",edit_web_admin_customer_path,class: "btn btn-outline-secondary mr-3vw" %></label>
+           <%= link_to"Followings",followings_web_admin_customer_path(@customer.id),class: "btn btn-outline-secondary mr-3vw" %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
