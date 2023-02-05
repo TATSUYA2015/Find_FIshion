@@ -13,9 +13,6 @@
           <%= f.file_field :image, accept: "image/*" %>
         </li>
         <li>
-          <label>Accunt_Image:</label>
-          <%= f.file_field :profile_image, accept: "image/*" %>
-        </li>
         <li>
           <label>Genre:</label>
           <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
