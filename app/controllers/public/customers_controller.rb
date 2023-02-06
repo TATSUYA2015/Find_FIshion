@@ -1,8 +1,8 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer=Customer.find(params[:id])
-    #自身以外のIDだけ認識
-    @customers=Customer.where.not(id: current_customer.id)
+    #↓フォローしている人全員を持ってくる＝フォえおーしている人全員の中から投稿者の退会が有効な人を絞り込んでいるという記述
+    @customer_followings = @customer.followings.where(is_deleted: false)
   end
 
   def edit
@@ -27,7 +27,7 @@ class Public::CustomersController < ApplicationController
 
   def followings
     customer=Customer.find(params[:id])
-    @contributors=customer.followings
+    @contributors=customer.followings.where(is_deleted: false)
   end
 
 
