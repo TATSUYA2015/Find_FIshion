@@ -151,6 +151,7 @@ GEM
     msgpack (1.6.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
+    mysql2 (0.5.5)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -201,8 +202,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     public_suffix (5.0.1)
-    puma (5.6.5)
-      nio4r (~> 2.0)
+    puma (3.12.6)
     racc (1.6.1)
     rack (2.2.4)
     rack-proxy (0.7.4)
@@ -323,12 +323,16 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari (~> 1.2.1)
   listen (~> 3.3)
+  mysql2
+  net-imap
+  net-pop
+  net-smtp
   omniauth (= 1.9.1)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   omniauth-twitter
   pry-byebug
-  puma (~> 5.0)
+  puma (~> 3.11)
   rails (~> 6.1.7)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
