@@ -58,7 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'kaminari','~> 1.2.1'
-gem 'pry-byebug'
+#gem 'pry-byebug'
 gem "enum_help"
 gem 'image_processing', '~> 1.2'
 gem 'bootstrap', '~> 4.5'
@@ -67,6 +67,16 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
+  # ここに移動
+  gem 'pry-byebug'
+  gem 'pry-rails'
+end
+
 
 gem 'dotenv-rails'
 group :production do
