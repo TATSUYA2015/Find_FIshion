@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2023_01_15_130943) do
     t.integer "genre_id", null: false
     t.integer "contributor_id", null: false
     t.string "name", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
