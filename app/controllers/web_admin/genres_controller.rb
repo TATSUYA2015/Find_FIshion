@@ -5,9 +5,13 @@ class WebAdmin::GenresController < ApplicationController
   end
 
   def create
-    genre=Genre.new(genre_params)
-    genre.save
-    redirect_to web_admin_genres_path
+    @genre=Genre.new(genre_params)
+    @genres=Genre.all
+    if @genre.save
+      redirect_to web_admin_genres_path
+    else
+      render :index
+    end
   end
 
   def edit
