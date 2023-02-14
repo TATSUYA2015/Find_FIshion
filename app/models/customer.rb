@@ -18,13 +18,9 @@ class Customer < ApplicationRecord
       uid: auth.uid,
       provider: auth.provider,
       name: name,
-      # first_name: name,
       #E-mailはTwitterログインでは取得できない
       email: Customer.dummy_email(auth),
       password: Devise.friendly_token[0, 20],
-      # last_name: "@",
-      # last_name_kana: "ツイッター",
-      # first_name_kana: "ツイッター",
       account: "twitter",
       telephone_number:"000-0000-0000"
     )
