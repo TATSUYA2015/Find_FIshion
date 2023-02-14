@@ -28,20 +28,18 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
   def customer_state
-    @customer = Customer.find_by(email: params[:customer][:email])
-    return if !@customer
-    if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
-      redirect_to new_customer_registration_path
+    if params[:customer][:email]
+      @customer = Customer.find_by(email: params[:customer][:email])
+      return if !@customer
+      if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
+        redirect_to new_customer_registration_path
+      end
+    elsif params[:customer][:uid]
+      @customer = Customer.find_by(uid: params[:customer][:uid])
+      return if !@customer
+      if @customer.valid_provider?(params[:customer][:provider]) && @customer.is_deleted
+        redirect_to new_customer_registration_path
+      end
     end
   end
-
-  def customer_state
-    @customer = Customer.find_by(uid: params[:customer][:uid])
-    return if !@customer
-    if @customer.valid_provider?(params[:customer][:provider]) && @customer.is_deleted
-      redirect_to new_customer_registration_path
-    end
-  end
-
-
 end
