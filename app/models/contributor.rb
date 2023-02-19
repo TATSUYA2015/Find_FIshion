@@ -51,6 +51,8 @@ class Contributor < ApplicationRecord
   validates :last_name_kana,       presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :first_name_kana,      presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :brand_name,           presence: true
+  validates :email,                presence: true
+  validates :password,             presence: true
   validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :address,              presence: true, length: { minimum: 1}
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}

@@ -1,7 +1,14 @@
 <h2 class="text-center">Sign up</h2>
-
+<% if @contributor.errors.any? %>
+  <%= @contributor.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @contributor.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "post_admin/shared/error_messages", resource: resource %>
+  <%#= render "post_admin/shared/error_messages", resource: resource %>
   <div class="text-center">
     <%= f.text_field :last_name, placeholder: "Last_Name" %> <%= f.text_field :first_name, placeholder: "First_Name" %>
   </div>
