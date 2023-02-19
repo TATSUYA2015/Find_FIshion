@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      item:
+        name: 商品名
+        image: 商品画像
+        genre: ジャンル
+        introduction: 商品説明
+    
+    activerecord:
+    attributes:
+    

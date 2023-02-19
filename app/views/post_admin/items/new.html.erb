@@ -1,5 +1,13 @@
 <link rel="stylesheets" href="post_admin/items.scss"/>
 <h2 class="text-center">New_Item</h2>
+<% if @item.errors.any? %>
+  <%= @item.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="container">
   <div class="row d-flex justify-content-center">
     <%= form_with model: @item, url:post_admin_items_path, method: :post do |f| %>

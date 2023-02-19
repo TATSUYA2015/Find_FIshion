@@ -67,6 +67,7 @@ gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

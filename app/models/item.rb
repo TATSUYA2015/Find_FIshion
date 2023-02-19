@@ -29,6 +29,8 @@ class Item < ApplicationRecord
 
 
     validates :name,           presence:true
+    validates :image,          presence:true
+    validates :genre,          presence:true
     validates :introduction,   presence:true
 
 end

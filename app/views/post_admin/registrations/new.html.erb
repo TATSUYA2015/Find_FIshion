@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "post_admin/shared/error_messages", resource: resource %>
   <div class="text-center">
-    <%= f.text_field :last_name, placeholder: "First_Name" %> <%= f.text_field :first_name, placeholder: "First_Name" %>
+    <%= f.text_field :last_name, placeholder: "Last_Name" %> <%= f.text_field :first_name, placeholder: "First_Name" %>
   </div>
   </br>
   <!--<div class="text-center">-->
@@ -33,7 +33,7 @@
     <%= f.password_field :password, placeholder: "Password 6文字以上", autocomplete: "new-password" %> <%= f.password_field :password_confirmation, placeholder: "同じ Password", autocomplete: "new-password" %>
   </div>
   <div class="text-center">
-    <%= f.text_field :postal_code, placeholder: "〒◯◯◯-◯◯◯◯" %> <%= f.text_field :address, placeholder: "Address" %> <%= f.text_field :telephone_number, placeholder: "Tel" %>
+    <%= f.text_field :postal_code, placeholder: "〒: 000-0000" %> <%= f.text_field :address, placeholder: "Address" %> <%= f.text_field :telephone_number, placeholder: "Tel" %>
   </div>
   </br>
   <div class="text-center">
