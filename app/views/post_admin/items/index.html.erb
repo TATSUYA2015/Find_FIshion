@@ -19,7 +19,7 @@
     <% @items.each do |item| %>
       <% if item.contributor == current_contributor %>
         <%= link_to post_admin_item_path(item.id), class: "text-decoration-none text-dark" do %>
-          <%= image_tag item.image,size:"300x300" %><br>
+          <%= image_tag item.image,class:"thumbnail-img" %><br>
           <div class="card  shadow-lg">
           <%= item.name %><br>
           </div>

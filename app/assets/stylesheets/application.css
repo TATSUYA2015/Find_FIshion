@@ -112,6 +112,18 @@
     background-color: #D04829;
   }
 
+  .thumbnail-img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .show-img{
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+  }
+
 
   footer{
     margin-top: 50px;
