@@ -1,12 +1,12 @@
 <h2 class="text-center">Customer_Accunt</h2>
-</br>
+<br>
 <div class="container">
   <div class="row d-flex justify-content-around">
     <% @customers.each do |customer| %>
       <div class="card  shadow">
         <%= link_to web_admin_customer_path(customer.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
-          <div class="step-image1-1"><%= image_tag customer.get_profile_image(100,100) %></div></br>
-          <div class="text-center d-inline-block text-truncate" style="max-width: 150px;"><%= customer.name %></div></br>
+          <div class="step-image1-1"><%= image_tag customer.get_profile_image(100,100) %></div><br>
+          <div class="text-center d-inline-block text-truncate" style="max-width: 150px;"><%= customer.name %></div><br>
         <% end %>
         <div class="text-center">
           <% if customer.is_deleted %>

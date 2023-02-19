@@ -1,14 +1,14 @@
 <h2 class="text-center">Followers</h2>
-</br>
+<br>
 <div class="container following-area">
-</br>
+<br>
   <div class="row d-flex justify-content-around">
     <div class="followings">
     <% @customers.each do |customer| %>
       <div class="card shadow">
-        <div class="step-image1-1"><%= image_tag customer.get_profile_image(150,150) %></div></br>
-        <div class="text-center"><%= customer.account %></div></br>
+        <div class="step-image1-1"><%= image_tag customer.get_profile_image(150,150) %></div><br>
+        <div class="text-center"><%= customer.account %></div><br>
       </div>
     <% end %>
-  </br>
+  <br>
 </div>

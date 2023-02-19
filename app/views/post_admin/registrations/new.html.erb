@@ -12,23 +12,15 @@
   <div class="text-center">
     <%= f.text_field :last_name, placeholder: "Last_Name" %> <%= f.text_field :first_name, placeholder: "First_Name" %>
   </div>
-  </br>
-  <!--<div class="text-center">-->
-  <!--  <%#= f.label :first_name %>-->
-  <!--  <%#= f.text_field :first_name %>-->
-  <!--</div>-->
+  <br>
   <div class="text-center">
     <%= f.text_field :last_name_kana, placeholder: "Last_Name_カナ" %> <%= f.text_field :first_name_kana, placeholder: "First_Name_カナ" %>
   </div>
-  </br>
-  <!--<div class="text-center">-->
-  <!--  <%#= f.label :first_name_kana %>-->
-  <!--  <%#?= f.text_field :first_name_kana %>-->
-  <!--</div>-->
+  <br>
   <div class="text-center">
     <%= f.text_field :brand_name, placeholder: "Brand_Name" %> <%= f.file_field :profile_image, accept: "image/*" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.email_field :email, placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
   </div>
@@ -42,7 +34,7 @@
   <div class="text-center">
     <%= f.text_field :postal_code, placeholder: "〒: 000-0000" %> <%= f.text_field :address, placeholder: "Address" %> <%= f.text_field :telephone_number, placeholder: "Tel" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.submit "Sign up", class: "btn btn-outline-secondary mr-3vw" %> <%= render "post_admin/shared/links" %>
   </div>

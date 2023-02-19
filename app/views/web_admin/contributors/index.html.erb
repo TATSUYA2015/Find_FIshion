@@ -1,12 +1,12 @@
 <h2 class="text-center">Contributor_Accunt</h2>
-</br>
+<br>
 <div class="container">
   <div class="row d-flex justify-content-around">
     <% @contributors.each do |contributor| %>
       <div class="card  shadow">
         <%= link_to web_admin_contributor_path(contributor.id), class: "text-secondary"  do %> <!--各ブランド情報ページのリンク -->
-          <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
-          <div class="text-center"><%= contributor.brand_name %></div></br>
+          <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div><br>
+          <div class="text-center"><%= contributor.brand_name %></div><br>
         <% end %>
         <div class="text-center">
           <% if contributor.is_deleted %>

@@ -6,7 +6,7 @@
             <div class="brand-area2">
             <h1 class="text-center"><%= @contributor.brand_name %></h1>
             <p class="brand-explanation">
-                〜〜ブランド説明〜〜</br>
+                〜〜ブランド説明〜〜<br>
                 <%= @contributor.introduction %>
             </p>
             <% if customer_signed_in? %>
@@ -31,8 +31,8 @@
             <% if item.contributor.id == @contributor.id %>
                 <%= link_to item_path(item.id), class: "text-secondary" do %>
                     <div class="card  shadow-lg">
-                      <%= image_tag item.image,size:"300x300" %></br>
-                      <%= item.name %></br>
+                      <%= image_tag item.image,size:"300x300" %><br>
+                      <%= item.name %><br>
                     </div>
                 <% end %>
             <% end %>

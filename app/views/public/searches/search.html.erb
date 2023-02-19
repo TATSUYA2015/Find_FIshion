@@ -11,7 +11,7 @@
               <td>
                 <div class="card shadow">
                   <%= link_to contributor_path(contributor.id), class: "text-secondary" do %>
-                    <%= image_tag contributor.get_profile_image(162,211) %></br>
+                    <%= image_tag contributor.get_profile_image(162,211) %><br>
                     <%= contributor.brand_name %>
                   <% end %>
                 </div>
@@ -27,8 +27,8 @@
               <td>
                 <div class="card shadow">
                   <%= link_to item_path(item.id), class: "text-secondary" do %>
-                    <%= image_tag item.image ,size:'162x211' %></br>
-                    <div class="text-center"><%= item.name %></br>
+                    <%= image_tag item.image ,size:'162x211' %><br>
+                    <div class="text-center"><%= item.name %><br>
                   <% end %>
                 </div>
               </td>

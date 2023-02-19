@@ -13,30 +13,30 @@
   <div class="text-center">
     <%= f.text_field :name, placeholder: "Name" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.text_field :account, placeholder: "Account @~~" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.email_field :email, placeholder: "E-mail", autofocus: true, autocomplete: "email" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <!--<%# if @minimum_password_length %>-->
     <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
     <!--<%# end %>-->
     <%= f.password_field :password, placeholder: "Password 6文字以上", autocomplete: "new-password" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.password_field :password_confirmation, placeholder: "同じ Password", autocomplete: "new-password" %>
   </div>
-  </br>
+  <br>
    <div class="text-center">
     <%= f.text_field :telephone_number, placeholder: "000-0000-0000" %>
   </div>
-  </br>
+  <br>
   <div class="text-center">
     <%= f.submit "Sign up", class: "btn btn-outline-secondary mr-3vw" %>
   </div>

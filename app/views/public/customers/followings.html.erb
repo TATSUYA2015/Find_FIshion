@@ -1,15 +1,15 @@
 <link rel="stylesheets" href="public/followings.scss"/>
 <h2 class="text-center">Followings</h2>
-</br>
+<br>
 <div class="container following-area">
-</br>
+<br>
   <div class="row d-flex justify-content-around">
     <% @contributors.each do |contributor| %>
       <%# if Contributor.find(contributor.id).is_deleted == false  %>
         <div class="card shadow">
           <%= link_to contributor_path(contributor.id), class: "text-secondary" do %> <!--各ブランド情報ページのリンク -->
-            <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div></br>
-            <div class="text-center"><%= contributor.brand_name %></div></br>
+            <div class="step-image1-1"><%= image_tag contributor.get_profile_image(150,150) %></div><br>
+            <div class="text-center"><%= contributor.brand_name %></div><br>
           <% end %>
         </div>
       <%# end %>
