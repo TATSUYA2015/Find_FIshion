@@ -7,8 +7,6 @@ ja:
         genre: ジャンル
         introduction: 商品説明
 
-  activerecord:
-    attributes:
       customer:
         name: 名前
         account: アカウント名
@@ -16,8 +14,6 @@ ja:
         password: パスワード
         telephone_number: 電話番号
 
-  activerecord:
-    attributes:
       contributor:
         last_name:  名字
         first_name: 名前
