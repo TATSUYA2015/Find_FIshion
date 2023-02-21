@@ -64,6 +64,5 @@ class Customer < ApplicationRecord
   validates :name,                 presence: true
   validates :account,              presence: true
   validates :email,                presence: true
-  #validates :password,             presence: true
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
 end

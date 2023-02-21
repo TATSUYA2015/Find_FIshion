@@ -18,7 +18,6 @@ class PostAdmin::ContributorsController < ApplicationController
   end
 
   def withdrawal
-    @contributor=Contributor.find(params[:id])
     @contributor.update(is_deleted: true)
     reset_session
     redirect_to new_contributor_session_path
