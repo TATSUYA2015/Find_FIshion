@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-    before_action :ensure_customer, only:[:show, :edit, :update]
+    before_action :ensure_customer, only:[:show, :edit, :update, :unsubscribe]
 
   def show
     #↓フォローしている人全員を持ってくる＝フォローしている人全員の中から投稿者の退会が有効な人を絞り込んでいるという記述
@@ -48,9 +48,6 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:name, :account, :profile_image , :email, :telephone_number,:following_id)
   end
 
-  def contributor_paramas
-    params.require(:contributor).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :brand_name, :get_profile_image, :profile_image, :email, :postal_code, :address, :telephone_number, :introduction)
-  end
 
 end
 
