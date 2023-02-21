@@ -1,11 +1,11 @@
 class PostAdmin::ContributorsController < ApplicationController
+  before_action :ensure_customer, only:[:show, :edit, :update, :unsubscribe]
+
   def show
-    @contributor=Contributor.find(params[:id])
     @contributors=Contributor.where.not(id: current_contributor.id)
   end
 
   def edit
-    @contributor=Contributor.find(params[:id])
   end
 
   def update
@@ -27,6 +27,11 @@ class PostAdmin::ContributorsController < ApplicationController
   end
 
   private
+
+  def ensure_customer
+    @contributor=Contributor.find(params[:id])
+    redirect_to post_admin_items_path unless current_contributor.id == @contributor.id
+  end
 
   def contributor_paramas
     params.require(:contributor).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :brand_name, :get_profile_image, :profile_image, :email, :postal_code, :address, :telephone_number, :introduction, :is_deleted)
