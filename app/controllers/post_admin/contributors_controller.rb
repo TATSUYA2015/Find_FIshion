@@ -1,5 +1,5 @@
 class PostAdmin::ContributorsController < ApplicationController
-  before_action :ensure_customer, only:[:show, :edit, :update, :unsubscribe]
+  before_action :ensure_contributor, only:[:show, :edit, :update, :unsubscribe, :withdrawal]
 
   def show
     @contributors=Contributor.where.not(id: current_contributor.id)
@@ -31,7 +31,7 @@ class PostAdmin::ContributorsController < ApplicationController
 
   private
 
-  def ensure_customer
+  def ensure_contributor
     @contributor=Contributor.find(params[:id])
     redirect_to post_admin_items_path unless current_contributor.id == @contributor.id
   end

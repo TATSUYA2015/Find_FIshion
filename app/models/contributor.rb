@@ -8,7 +8,7 @@ class Contributor < ApplicationRecord
   scope :active, -> { where(is_deleted: false) }
   # scope :deleted, -> { where(is_deleted: true) }
 
-  #退会しているかの判断
+  #退会の有無の判断
   def activ_for_authentication?
     super && (self.is_deleted == false)
   end
@@ -52,7 +52,6 @@ class Contributor < ApplicationRecord
   validates :first_name_kana,      presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :brand_name,           presence: true
   validates :email,                presence: true
-  validates :password,             presence: true
   validates :postal_code,          presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :address,              presence: true, length: { minimum: 1}
   validates :telephone_number,     presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}-[0-9]{4}\z/}
