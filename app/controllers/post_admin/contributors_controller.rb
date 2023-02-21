@@ -14,6 +14,9 @@ class PostAdmin::ContributorsController < ApplicationController
     redirect_to  post_admin_contributor_path(current_contributor.id)
   end
 
+  def unsubscribe
+  end
+
   def withdrawal
     @contributor=Contributor.find(params[:id])
     @contributor.update(is_deleted: true)
