@@ -1,4 +1,6 @@
 class PostAdmin::ItemsController < ApplicationController
+  before_action :ensure_item, only:[:show, :edit]
+
   def index
     @item=Item.new
     @items=Item.all
@@ -20,11 +22,11 @@ class PostAdmin::ItemsController < ApplicationController
   end
 
   def show
-    @item=Item.find(params[:id])
+    # @item=Item.find(params[:id])
   end
 
   def edit
-    @item=Item.find(params[:id])
+    # @item=Item.find(params[:id])
   end
 
   def update
@@ -40,6 +42,11 @@ class PostAdmin::ItemsController < ApplicationController
   end
 
   private
+
+  def ensure_item
+    @item=Item.find(params[:id])
+    redirect_to post_admin_items_path unless current_contributor.id == @item.contributor_id
+  end
 
   def item_params
     params.require(:item).permit(:genre_id, :name, :image, :introduction)
